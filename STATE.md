@@ -1,7 +1,7 @@
 # 项目当前状态
 
 > 用途：会话被 `/compact` 或 `/clear` 后，新会话读此文件即可接续。
-> 最后更新：2026-04-27（赌神・双六全文转录完成，PDF p.14-17 / 刊页 12-15；首次 agent 试点成功）
+> 最后更新：2026-04-28（踢王 7 页全文转录完成，PDF p.18-24 / 刊页 16-22；CONVENTIONS.md frontmatter 规范已落定；DQ5 作者"● 韩"= 韩友 已确证）
 
 ## 项目目标
 
@@ -72,14 +72,15 @@ games: [游戏 slug 列表]
 - [x] **pages/p005.md** — PDF p.5，目录右半 + 版权页
 - [x] **articles/dq5.md** — 《勇者斗恶龙 V 快速攻略》PDF p.6-13（刊页 4-11）**全文完结**，作者署名"● 韩"（疑为编委韩友）
 - [x] **articles/dice-king.md** — 《赌神・双六》PDF p.14-17（刊页 12-15）**全文完结**，作者署名"● 熏风"（编委、本刊主任）— 首次 agent 试点
+- [x] **articles/kick-king.md** — 《踢王》PDF p.18-24（刊页 16-22）**全文完结**，作者"● 邱兆龙（撰文）/ ● 周志伟（摄影）"，附 p.22 右下"天堂任鸟飞"栏目方框由 ● 韩友本人署名 — 第二次 agent 试点（7 页，比 dice-king 长，仍稳定）
+- [x] **CONVENTIONS.md frontmatter 规范**已落定（articles/ 字段顺序 + 类型 + status 字段；禁用 range 字符串），后续 agent 可直接复制模板
 
-### 赌神已完结，下一篇起步
+### 踢王已完结，下一篇起步
 
-- [ ] **PDF p.18 起**（刊页 16+）— **踢王**（栏目：天堂任鸟飞）
+- [ ] **PDF p.25 起**（刊页 23）— **天舞三国志**（栏目：天堂任鸟飞，疑似单页；可作 page-style 处理或短 article）
 
 ### 后续 article（按目录）
 
-- [ ] 天舞三国志（刊页 23）
 - [ ] 爆炸俄罗斯（刊页 24+）
 - [ ] 双截龙（刊页 26+）
 - [ ] 快打旋风（刊页 30+）
@@ -114,23 +115,40 @@ games: [游戏 slug 列表]
 - "按着掷怪兽移动的骰子"——疑为"**接**着掷"
 - "则被预先告之使用的结果"——"告之"应为"**告知**"
 
+### 踢王（详见 `articles/kick-king.md` 文末"编辑备注"，27 条）
+
+- 原作待考——文中无明确日 / 英文原标题，由文风 + "8 位任天堂"+ 10 招踢腿 + 12 件宝物 + 8 关 + 英文密码线索，agent 推测疑为 Culture Brain 的 FC 动作 RPG（《Flying Warriors》/ 飞翔战士系列同社作品），**未确认**
+- p.21 第七 / 第八件宝物段落疑似**双段重复**——可能是版面问题，也可能原刊就是叙述重复
+- 招式表中"连环脚→B 水平段 4"与"高腿→B 水平段 0"出招相同——疑印刷错误
+- 密码花色字符（梅花 ♣、红心、黑桃等小图标）印刷不清——agent 用 ♣ 占位，需校对者按扫描件还原
+- "减血酷髻"（屏幕宝物列表）真意不明——疑为"减血鬼盔/鬼髻"或全然另一词
+- "亲和恩爱"（结局）疑漏字"**相**亲相爱"
+- 第五件宝物原刊故意悬念"??这到底是什么呢？"——叙事手法，已保留原貌（非错印）
+- **重要副产物**：本文 p.22 右下"天堂任鸟飞"栏目方框由 ● 韩友亲笔署名，**确证 dq5.md 的"● 韩"= 韩友**（已回填 dq5.md frontmatter 和编辑备注）
+
 ## 接续会话的提示词模板
 
 新会话开局可以这样起步：
 
 ```
 读 /home/pi/exdisk/ocr-workspace/STATE.md 接续上次的杂志数字化工作。
-然后读 CONVENTIONS.md。
-然后开始下一篇 article：踢王（PDF p.18 起，刊页 16 起），新建 articles/kick-king.md（slug 待定）。
-建议：派 agent 处理（参考 dice-king 的 agent 试点已成功；以 dq5.md / dice-king.md 为风格基线）。
+然后读 CONVENTIONS.md（注意 frontmatter 规范已写定）。
+然后开始下一篇：天舞三国志（PDF p.25 / 刊页 23，疑似单页）。
+
+可能的处理路径：
+- 若实为单页：用 pages/p025.md（用 pdf_page / mag_page 单数 frontmatter）
+- 若跨页：新建 articles/sangokushi.md
+建议先 Read p.25 + p.26 各一页判定边界，再决定形态。
 
 PDF 路径：/home/pi/exdisk/books/H-杂志书刊/电子游戏软件/1994年/试刊GAME集中营VOL.1.pdf
 拆页用：pdfseparate -f N -l N <pdf> /tmp/game-zjy/page-%d.pdf
+
+派 agent 处理时，可参考已完结的 articles/dq5.md / dice-king.md / kick-king.md 作为风格基线。
 ```
 
 ## 注意事项
 
 - **勿污染原始 PDF**：所有处理都基于拆出的临时单页（`/tmp/game-zjy/`），原始 PDF 只读
-- **不要读封面/已转录页**：已经转录到 md 的页（PDF p.1-17）不要再读 PDF，省 token
-- **agent 试点**：dice-king 是首次 agent 试点，效果良好——把 4 页 PDF 读取留在子上下文，主 session 只做抽查 + 同步。后续可继续 per-article 派 agent
+- **不要读封面/已转录页**：已经转录到 md 的页（PDF p.1-24）不要再读 PDF，省 token
+- **agent 工作流**：dice-king（4 页）+ kick-king（7 页）两次 agent 试点都稳定。流程是——主 session 写 self-contained prompt（含 PDF 路径、页码范围、CONVENTIONS 引用、已完结 article 作风格基线、边界验证页指示）→ 派 general-purpose agent → agent 在子上下文做 pdfseparate + Read + Write → 主 session 抽查 + 回填发现 + 同步 STATE/README + commit。**默认派 agent；系列首篇 / 长叙事 / 跨文章引用时主 session 处理**
 - **提交点**：每完成一篇 article 或一组 pages，可以考虑 `git commit`（工作区已经 `uv init` 时建了 .git）
