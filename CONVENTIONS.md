@@ -31,37 +31,70 @@ ocr-workspace/
 
 | 类型 | 处理方式 |
 |---|---|
-| 卷首语、编辑手记、读者来信 | 可逐字转录（短、独立价值高）|
+| 卷首语、编辑手记、读者来信 | 逐字转录（短、独立价值高）|
 | 目录 | 结构化 Markdown 表格 |
-| 游戏攻略正文 | **摘要 + 结构化提取**（剧情梗概、关键节点、必杀技表、地图要点），**不做整段复刻** |
+| 游戏攻略正文 | **全文 OCR**（用户决定，覆盖原"摘要"建议）；剧情、操作、地图、对话保留原貌 |
 | 操作表 / 必杀技指令 / 数据表 | Markdown 表格 |
-| 图注、截图说明 | 摘要 |
-| 广告、花絮 | 提及存在即可，不转录 |
+| 图注、截图说明 | 简要转录（保留信息，不做摘要式压缩）|
+| 广告 | 全文转录（算文化史料）|
 
-说明：这是版权材料，即便个人归档也优先"可检索的结构化数据"而非"完整复刻"，这样对建站检索也更有用。
+说明：用户在私域自用范围内已决定**全文 OCR**，校对成本由用户承担。Markdown 中的结构化（章节、表格、frontmatter）服务于建站检索，但**不替代**原文转录。
 
-## Markdown 页文件格式
+## Frontmatter 规范
 
-```markdown
+短栏目（`pages/`）和长文章（`articles/`）用两套不同的 frontmatter，**字段顺序固定**、**字段类型严格**。新文件必须按下列模板复制，不要重新发明字段名或顺序。
+
+### 单页文件 `pages/pNNN.md`
+
+```yaml
 ---
 issue: 1994-vol1
-page: 3
-section: 卷首语      # 所属栏目
+pdf_page: 3
+mag_page: 1            # int；目录续页 / 版权页等无明显刊页码时写 null
+section: 卷首语
 title: 闯关族的舞台
-author: 重凡
-games: []           # 本页提及的游戏（slug）
+author: 重凡           # string；无署名时省略本字段（不要写 null 占位，直接不出现）
+games: []              # 本页提及游戏的 slug list
 ---
-
-# 闯关族的舞台
-
-> 作者：重凡｜页码：p.3
-
-（正文内容）
-
-## 编辑备注
-
-（必要时补充校对说明、难辨字、可疑处）
 ```
+
+### 多页文章 `articles/<slug>.md`
+
+```yaml
+---
+issue: 1994-vol1
+title: 勇者斗恶龙 V 快速攻略
+section: 天堂任鸟飞
+pdf_pages: [6, 7, 8, 9, 10, 11, 12, 13]
+mag_pages: [4, 5, 6, 7, 8, 9, 10, 11]
+author: 韩（疑为编委韩友，p.13 末尾署"● 韩"）   # 不确定时附简短考据；完全无署名为 null
+games:
+  - dq5
+status: 已完结（PDF 6-13 / 刊页 4-11 全文转录完成）
+---
+```
+
+### 字段约束
+
+| 字段 | 类型 | 备注 |
+|---|---|---|
+| `issue` | string | 期号 slug，如 `1994-vol1` |
+| `pdf_page` / `pdf_pages` | int / int list | 单页用 `pdf_page: N`；多页一律用 `pdf_pages: [N, N+1, ...]` 列表，**禁止用 `[4-11]` 之类 range 字符串** |
+| `mag_page` / `mag_pages` | int / int list / null | 同上；目录续页 / 版权页等无显式刊页码时写 `null`（pages）或省略对应整数（articles 不应出现 null 元素）|
+| `section` | string | 栏目原名（如 `天堂任鸟飞`、`世嘉世家`、`卷首语`）|
+| `title` | string | 文章原标题，全角符号保留 |
+| `author` | string / null / 省略 | 不确定时附简短说明，如 `韩（疑为编委韩友）`；pages 无作者直接省略字段，articles 无作者写 `null` |
+| `games` | list of slug | slug 全小写 ASCII，多词用 `-` 连接，例：`dq5`、`dice-king`、`sonic2` |
+| `status` | string | **仅 articles/ 用**。两种状态：`进行中（已完成 PDF X-Y）` / `已完结（PDF X-Y / 刊页 A-B 全文转录完成）` |
+
+### 字段顺序（不要打乱）
+
+- **pages/**：`issue → pdf_page → mag_page → section → title → author → games`
+- **articles/**：`issue → title → section → pdf_pages → mag_pages → author → games → status`
+
+### 正文起手
+
+frontmatter 之后立即给出 H1 标题 + 一行 `>` blockquote 摘要（作者 / 页码 / 栏目 / 原作信息），再开始正文。文末必须有 `## 编辑备注` 段，列出难辨字、漏字、错印、译名漂移等。多页文章建议在末尾追加**人名 / 地名 / 术语译名表**和**事件表**（参考 `articles/dq5.md`、`articles/dice-king.md`）。
 
 ## 游戏标题处理
 
