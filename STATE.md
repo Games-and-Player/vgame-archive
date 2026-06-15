@@ -97,7 +97,8 @@ games: [游戏 slug 列表]
 - [x] **articles/shikinjo.md** — 《紫禁城》PDF p.52-53（刊页 46-47）**全文完结**，无署名。Shikinjō（Sunsoft 1991），麻将牌消除益智游戏，500 关；p.53 与世界杯共享页面
 - [x] **articles/world-cup-soccer.md** — 《世界杯超级足球赛》PDF p.53-54（刊页 47-48）**全文完结**，无署名。Tecmo World Cup '92，三种阵型介绍 + 球场风采
 - [x] **articles/nba-basketball.md** — 《NBA 美国职业篮球赛》PDF p.55（刊页 49）**全文完结**，作者：刘儒德。NBA Action，操作表 + 球队选择 + 赛制介绍。**世嘉世家栏目全部完结**
-- [ ] 昨与今・世嘉大战任天堂（刊页 50+ / PDF p.56+）
+- [x] **articles/sega-vs-nintendo.md** — 《SEGA世嘉大战任天堂 谁是老大》PDF p.56-57（刊页 50-51）**全文完结**，作者：林明正（译）。翻译文章，基于1992年CES的Sega vs Nintendo行业分析；台式中文行文
+- [ ] 昨与今・十年辉煌任天堂（刊页 52+ / PDF p.58+）
 - [ ] 昨与今 / 渗透波 / 大侦探俱乐部 / 打余茶座 / 死亡游戏 / 新手培训车间 / 二手货市场 / 编后谈
 
 ## 已识别但未解决的转录问题
