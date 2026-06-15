@@ -82,11 +82,11 @@ games: [游戏 slug 列表]
 
 - [x] **articles/double-dragon.md** — 《双截龙》PDF p.28-31（刊页 26-29）**全文完结**，无署名。SFC 版 Return of Double Dragon，4 页招式详解 + 5 关攻略 + 敌方角色表
 
+- [x] **articles/final-fight.md** — 《快打旋风 II》PDF p.32-33（刊页 30-31）**全文完结**，无署名。SFC 版 Final Fight 2，角色介绍（HAGGAR/MAKI/CARLOS）+ 剧情预览
+
 ### 后续 article（按目录）
 
-- [ ] 快打旋风（刊页 30+ / PDF p.32+）
-- [ ] 快打旋风（刊页 30+）
-- [ ] 快打至尊（PC 游戏室，刊页 32+）
+- [ ] 快打至尊（PC 游戏室，刊页 32+ / PDF p.34+）
 - [ ] 世嘉世家系列（刊页 34-49）
 - [ ] 昨与今 / 渗透波 / 大侦探俱乐部 / 打余茶座 / 死亡游戏 / 新手培训车间 / 二手货市场 / 编后谈
 

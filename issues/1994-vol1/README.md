@@ -38,7 +38,7 @@
 | 23 | 天舞三国志 | [articles/sangokushi.md](articles/sangokushi.md) |
 | 24 | 爆炸俄罗斯 | [articles/bombliss.md](articles/bombliss.md) |
 | 26 | 双截龙 | [articles/double-dragon.md](articles/double-dragon.md) |
-| 30 | 快打旋风 | — |
+| 30 | 快打旋风 II | [articles/final-fight.md](articles/final-fight.md) |
 
 ### PC 游戏室
 
@@ -117,7 +117,8 @@
 - [x] 天舞三国志（刊页 23-24 / PDF p.25-26）— 全文完结，无署名；p.26 与爆炸俄罗斯共享页面
 - [x] 爆炸俄罗斯（刊页 24-25 / PDF p.26-27）— 全文完结，无署名；目录名"爆炸俄罗斯"，正文标题"俄罗斯方块 II ＋炸弹方块"
 - [x] 双截龙（刊页 26-29 / PDF p.28-31）— 全文完结，无署名；SFC 版 Return of Double Dragon
-- [ ] 快打旋风（刊页 30+ / PDF p.32+）
+- [x] 快打旋风 II（刊页 30-31 / PDF p.32-33）— 全文完结，无署名；SFC 版 Final Fight 2，角色介绍 + 剧情预览
+- [ ] 快打至尊（刊页 32+ / PDF p.34+）— PC 游戏室
 - [ ] ...
 
 ## 栏目设计备忘（民间杂志学观察）
