@@ -84,10 +84,10 @@
 
 ### 打余茶座
 
-| 页 | 标题 |
-|---|---|
-| 58 | 闯关族 |
-| 59 | 不可不玩 |
+| 页 | 标题 | 文件 |
+|---|---|---|
+| 58 | 闯关族 | [articles/gamer-tribe.md](articles/gamer-tribe.md) |
+| 59 | 不可不玩 | [articles/must-play.md](articles/must-play.md) |
 
 ### 其他
 
