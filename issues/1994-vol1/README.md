@@ -35,8 +35,8 @@
 | 4 | 勇者斗恶龙 V | [articles/dq5.md](articles/dq5.md) |
 | 12 | 赌神・双六 | [articles/dice-king.md](articles/dice-king.md) |
 | 16 | 踢王 | [articles/kick-king.md](articles/kick-king.md) |
-| 23 | 天舞三国志 | — |
-| 24 | 爆炸俄罗斯 | — |
+| 23 | 天舞三国志 | [articles/sangokushi.md](articles/sangokushi.md) |
+| 24 | 爆炸俄罗斯 | [articles/bombliss.md](articles/bombliss.md) |
 | 26 | 双截龙 | — |
 | 30 | 快打旋风 | — |
 
@@ -114,7 +114,9 @@
 - [x] 勇者斗恶龙 V（刊页 4-11 / PDF p.6-13）— 全文完结，作者：韩
 - [x] 赌神・双六（刊页 12-15 / PDF p.14-17）— 全文完结，作者：熏风
 - [x] 踢王（刊页 16-22 / PDF p.18-24）— 全文完结，作者：邱兆龙（撰文）/ 周志伟（摄影）；附 p.22 韩友栏目方框语
-- [ ] 天舞三国志（刊页 23 / PDF p.25，疑似单页）
+- [x] 天舞三国志（刊页 23-24 / PDF p.25-26）— 全文完结，无署名；p.26 与爆炸俄罗斯共享页面
+- [x] 爆炸俄罗斯（刊页 24-25 / PDF p.26-27）— 全文完结，无署名；目录名"爆炸俄罗斯"，正文标题"俄罗斯方块 II ＋炸弹方块"
+- [ ] 双截龙（刊页 26+ / PDF p.28+）
 - [ ] ...
 
 ## 栏目设计备忘（民间杂志学观察）
