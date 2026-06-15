@@ -94,8 +94,9 @@ games: [游戏 slug 列表]
 - [x] **articles/bare-knuckle.md** — 《格斗四人组》PDF p.46-47（刊页 40-41）**全文完结**，无署名。Bare Knuckle II / Streets of Rage 2，角色介绍（MAX/AXEL/EOOLE/BLAZE）+ 剧情预览
 - [x] **articles/midnight-resistance.md** — 《午夜克星攻略》PDF p.48-49（刊页 42-43）**全文完结**，无署名。Midnight Resistance（Data East 1990），9 关全攻略，港式中文行文
 - [x] **articles/bio-hazard-battle.md** — 《亚生命战争》PDF p.50-51（刊页 44-45）**全文完结**，作者：刘儒德。Bio-Hazard Battle / Crying（Sega 1992），射击游戏赏析，生物造型评论
-- [ ] 世嘉世家・紫禁城（刊页 46+ / PDF p.52+）
-- [ ] 世嘉世家系列余篇（刊页 47-49）
+- [x] **articles/shikinjo.md** — 《紫禁城》PDF p.52-53（刊页 46-47）**全文完结**，无署名。Shikinjō（Sunsoft 1991），麻将牌消除益智游戏，500 关；p.53 与世界杯共享页面
+- [x] **articles/world-cup-soccer.md** — 《世界杯超级足球赛》PDF p.53-54（刊页 47-48）**全文完结**，无署名。Tecmo World Cup '92，三种阵型介绍 + 球场风采
+- [ ] 世嘉世家・NBA 职业篮球（刊页 49+ / PDF p.55+）
 - [ ] 昨与今 / 渗透波 / 大侦探俱乐部 / 打余茶座 / 死亡游戏 / 新手培训车间 / 二手货市场 / 编后谈
 
 ## 已识别但未解决的转录问题

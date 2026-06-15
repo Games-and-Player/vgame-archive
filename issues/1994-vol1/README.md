@@ -57,8 +57,8 @@
 | 40 | 格斗四人组 | [articles/bare-knuckle.md](articles/bare-knuckle.md) |
 | 42 | 午夜克星 | [articles/midnight-resistance.md](articles/midnight-resistance.md) |
 | 44 | 亚生命战争 | [articles/bio-hazard-battle.md](articles/bio-hazard-battle.md) |
-| 46 | 紫禁城 | — |
-| 47 | 世界杯足球 | — |
+| 46 | 紫禁城 | [articles/shikinjo.md](articles/shikinjo.md) |
+| 47 | 世界杯足球 | [articles/world-cup-soccer.md](articles/world-cup-soccer.md) |
 | 49 | NBA 职业篮球 | — |
 
 ### 昨与今
