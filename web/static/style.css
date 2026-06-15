@@ -1,0 +1,1106 @@
+/* ============================================================
+   复古印刷风 CSS 主题
+   Chinese Gaming Magazine Digital Archive — Retro Print Style
+   Design tokens: rice paper tones, warm serifs, double borders
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. CSS Variables & Reset
+   ------------------------------------------------------------ */
+:root {
+  --bg:           #f5f0e8;   /* 宣纸色 / rice paper */
+  --text:         #2a2a2a;   /* dark brown */
+  --accent:       #4a3728;   /* antique copper */
+  --secondary:    #8b7355;   /* golden brown */
+  --border:       #c4b08b;
+  --box-bg:       #ede6d6;
+  --nav-bg:       #ede6d6;
+
+  --font-body: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
+  --font-ui:   system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --nav-height:   56px;
+  --container:    800px;
+  --radius:       3px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 2;
+  padding-top: var(--nav-height);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+a:hover {
+  color: var(--secondary);
+  border-bottom-color: var(--border);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* ------------------------------------------------------------
+   2. Layout Container
+   ------------------------------------------------------------ */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+/* ------------------------------------------------------------
+   3. Navigation (.site-nav)
+   ------------------------------------------------------------ */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: var(--nav-bg);
+  /* Double border at the bottom */
+  border-bottom: 3px double var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 1.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+}
+
+.site-nav .brand {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  white-space: nowrap;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.site-nav .brand a {
+  color: inherit;
+  border-bottom: none;
+}
+
+.site-nav .brand a:hover {
+  color: var(--secondary);
+}
+
+.site-nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.site-nav .nav-links a {
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-bottom: none;
+  padding: 0.15em 0;
+}
+
+.site-nav .nav-links a:hover,
+.site-nav .nav-links a.active {
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-nav .search-link {
+  color: var(--secondary);
+  flex-shrink: 0;
+  border-bottom: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.site-nav .search-link:hover {
+  color: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   4. Breadcrumbs (.breadcrumb)
+   ------------------------------------------------------------ */
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--secondary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.breadcrumb a {
+  color: var(--secondary);
+  border-bottom: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+/* Separator injected via content */
+.breadcrumb .sep {
+  color: var(--border);
+  user-select: none;
+  padding: 0 0.15em;
+}
+
+/* Auto-generate separators if spans are used without .sep */
+.breadcrumb span + span::before {
+  content: ' / ';
+  color: var(--border);
+  padding: 0 0.15em;
+}
+
+/* ------------------------------------------------------------
+   5. Home Page — Issue Grid
+   ------------------------------------------------------------ */
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  margin-bottom: 2rem;
+  font-family: var(--font-ui);
+}
+
+.issue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.issue-card {
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem 1rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.issue-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(74, 55, 40, 0.12);
+}
+
+.issue-card a {
+  border-bottom: none;
+  color: inherit;
+}
+
+.issue-card .issue-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.issue-card .issue-meta {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.issue-card .issue-progress {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--secondary);
+  margin-top: 0.35rem;
+}
+
+/* ------------------------------------------------------------
+   6. Issue Page — Page Map
+   ------------------------------------------------------------ */
+.page-map {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 1.25rem 0 1.75rem;
+  padding: 1rem;
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.page-map .pg {
+  width: 40px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-align: center;
+  cursor: default;
+  transition: border-color 0.12s;
+}
+
+.page-map .pg.done {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.page-map .pg.todo {
+  background: var(--bg);
+  color: var(--border);
+}
+
+.page-map .pg:not(.done):not(.todo) {
+  background: var(--box-bg);
+  color: var(--secondary);
+}
+
+/* ------------------------------------------------------------
+   7. Progress Bar
+   ------------------------------------------------------------ */
+.progress-bar {
+  height: 6px;
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.progress-bar .progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.progress-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--secondary);
+  margin-bottom: 0.25rem;
+}
+
+/* ------------------------------------------------------------
+   8. Section Group & Tags
+   ------------------------------------------------------------ */
+.section-group {
+  margin-bottom: 2.5rem;
+}
+
+.section-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-group-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+/* Section/column tag: dark bg + light text, small + letter-spacing */
+.section-tag {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* ------------------------------------------------------------
+   9. Article Cards Grid (Issue Page)
+   ------------------------------------------------------------ */
+.article-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.85rem;
+}
+
+.article-card {
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem 0.8rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.article-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 1px 6px rgba(74, 55, 40, 0.1);
+}
+
+.article-card a {
+  border-bottom: none;
+  color: inherit;
+}
+
+.article-card .card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.45;
+}
+
+.article-card .card-author {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--secondary);
+}
+
+.article-card .card-pages {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  color: var(--border);
+}
+
+.article-card .card-status {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  margin-top: 0.2rem;
+}
+
+.article-card .card-status.done {
+  color: #5a7a4a;
+}
+
+.article-card .card-status.todo {
+  color: var(--secondary);
+}
+
+/* ------------------------------------------------------------
+   10. Article / Reading View
+   ------------------------------------------------------------ */
+.article-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px double var(--border);
+}
+
+.article-header .article-section {
+  margin-bottom: 0.5rem;
+}
+
+.article-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
+.article-header .article-meta {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--secondary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+}
+
+.article-header .article-meta span {
+  white-space: nowrap;
+}
+
+/* Article body — rendered markdown */
+.article-body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--text);
+}
+
+.article-body h1,
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 1.75em 0 0.5em;
+  line-height: 1.5;
+}
+
+.article-body h1 { font-size: 1.35rem; }
+.article-body h2 { font-size: 1.15rem; border-bottom: 1px solid var(--border); padding-bottom: 0.2em; }
+.article-body h3 { font-size: 1rem; }
+.article-body h4 { font-size: 0.95rem; color: var(--secondary); }
+
+.article-body p {
+  text-indent: 2em;
+  text-align: justify;
+  margin-bottom: 0.25em;
+}
+
+/* Don't indent paragraphs that follow headings or are inside special blocks */
+.article-body h1 + p,
+.article-body h2 + p,
+.article-body h3 + p,
+.article-body h4 + p,
+.article-body blockquote p,
+.article-body aside p,
+.article-body .boxed p,
+.article-body figcaption p,
+.article-body .footnotes p,
+.article-body li > p {
+  text-indent: 0;
+}
+
+.article-body blockquote {
+  border-left: 3px solid var(--border);
+  margin: 1.25em 0;
+  padding: 0.5em 1.25em;
+  font-style: italic;
+  color: var(--secondary);
+  background: var(--box-bg);
+}
+
+.article-body blockquote p {
+  text-indent: 0;
+  margin: 0;
+}
+
+/* Story summary boxes */
+.article-body aside,
+.article-body .boxed {
+  border: 1px solid var(--border);
+  background: var(--box-bg);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1.5em 0;
+  font-size: 0.92em;
+}
+
+.article-body aside p,
+.article-body .boxed p {
+  text-indent: 0;
+  margin-bottom: 0.35em;
+}
+
+.article-body aside strong,
+.article-body .boxed strong {
+  color: var(--accent);
+}
+
+/* Table */
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.9em;
+  font-family: var(--font-ui);
+  overflow-x: auto;
+  display: block;
+}
+
+.article-body thead {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.article-body th {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.5em 0.85em;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.article-body td {
+  padding: 0.45em 0.85em;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.article-body tbody tr:nth-child(even) td {
+  background: var(--box-bg);
+}
+
+.article-body tbody tr:hover td {
+  background: rgba(74, 55, 40, 0.05);
+}
+
+/* HR */
+.article-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+/* Inline code */
+.article-body code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875em;
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 0.1em 0.35em;
+  color: var(--accent);
+}
+
+.article-body pre {
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1em 1.25em;
+  overflow-x: auto;
+  margin: 1.25em 0;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+.article-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Figure & images */
+.article-body figure {
+  margin: 1.5em auto;
+  text-align: center;
+  max-width: 100%;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  display: block;
+  margin: 0 auto;
+}
+
+.article-body figcaption {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--secondary);
+  text-align: center;
+  margin-top: 0.4em;
+  font-style: italic;
+}
+
+/* Lists */
+.article-body ul,
+.article-body ol {
+  padding-left: 2em;
+  margin: 0.75em 0;
+}
+
+.article-body li {
+  margin-bottom: 0.2em;
+}
+
+/* Footnotes */
+.article-body .footnote,
+.article-body .footnotes {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--secondary);
+  margin-top: 2.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  line-height: 1.7;
+}
+
+.article-body .footnotes ol {
+  padding-left: 1.5em;
+}
+
+.article-body .footnotes li {
+  margin-bottom: 0.3em;
+}
+
+/* Superscript footnote references */
+.article-body sup {
+  font-family: var(--font-ui);
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
+  color: var(--accent);
+}
+
+.article-body sup a {
+  border-bottom: none;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------
+   11. Article Prev/Next Navigation (.article-nav)
+   ------------------------------------------------------------ */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 3px double var(--border);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+}
+
+.article-nav a {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  max-width: 45%;
+}
+
+.article-nav a:hover {
+  color: var(--secondary);
+}
+
+.article-nav .nav-prev { text-align: left; }
+.article-nav .nav-next { text-align: right; margin-left: auto; }
+
+.article-nav .nav-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--secondary);
+  font-weight: 400;
+  margin-bottom: 0.1em;
+}
+
+/* ------------------------------------------------------------
+   12. Search Page
+   ------------------------------------------------------------ */
+.search-form {
+  margin-bottom: 1.5rem;
+}
+
+.search-box {
+  width: 100%;
+  padding: 0.65em 1em;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--box-bg);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: none;
+}
+
+.search-box:focus {
+  border-color: var(--accent);
+  background: var(--bg);
+}
+
+.search-box::placeholder {
+  color: var(--border);
+}
+
+.search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.85rem 0 1.25rem;
+  font-family: var(--font-ui);
+}
+
+.search-filter {
+  font-size: 0.75rem;
+  padding: 0.25em 0.75em;
+  border: 1px solid var(--border);
+  border-radius: 2em;
+  background: var(--box-bg);
+  color: var(--secondary);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  font-family: inherit;
+}
+
+.search-filter:hover,
+.search-filter.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.search-result {
+  display: block;
+  padding: 0.85rem 1.1rem;
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: inherit;
+  border-bottom: none;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.search-result:hover {
+  border-color: var(--accent);
+  box-shadow: 0 1px 6px rgba(74, 55, 40, 0.1);
+  color: inherit;
+}
+
+.search-result .result-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.2em;
+  line-height: 1.4;
+}
+
+.search-result .result-meta {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--secondary);
+  margin-bottom: 0.35em;
+}
+
+.search-result .result-snippet {
+  font-size: 0.87rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.search-result .result-snippet mark {
+  background: rgba(74, 55, 40, 0.15);
+  color: var(--accent);
+  border-radius: 1px;
+  padding: 0 0.1em;
+}
+
+.search-empty {
+  text-align: center;
+  color: var(--secondary);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  padding: 3rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  margin-top: 1rem;
+}
+
+.search-count {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------------------------------------------------
+   13. Footer (.site-footer)
+   ------------------------------------------------------------ */
+.site-footer {
+  margin-top: 4rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--secondary);
+  text-align: center;
+  line-height: 1.8;
+}
+
+.site-footer a {
+  color: var(--secondary);
+  border-bottom: none;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   14. Utility Classes
+   ------------------------------------------------------------ */
+.text-muted {
+  color: var(--secondary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+/* Divider with text */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--secondary);
+  font-size: 0.8rem;
+  margin: 1.5rem 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--border);
+}
+
+/* Issue cover placeholder */
+.issue-cover-placeholder {
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--border);
+  font-size: 0.75rem;
+  font-family: var(--font-ui);
+  height: 80px;
+  margin-bottom: 0.6rem;
+}
+
+/* Status badges */
+.badge {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.1em 0.5em;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.badge-done {
+  background: rgba(90, 122, 74, 0.15);
+  color: #4a6a34;
+  border: 1px solid rgba(90, 122, 74, 0.3);
+}
+
+.badge-todo {
+  background: var(--box-bg);
+  color: var(--secondary);
+  border: 1px solid var(--border);
+}
+
+/* ------------------------------------------------------------
+   15. Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 600px) {
+  :root {
+    --nav-height: 48px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 1.25rem 1rem 2.5rem;
+  }
+
+  /* Nav wraps gracefully */
+  .site-nav {
+    padding: 0 1rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: var(--nav-height);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .site-nav .brand {
+    font-size: 0.9rem;
+  }
+
+  .site-nav .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .site-nav .search-link {
+    margin-left: auto;
+  }
+
+  /* Issue grid: 1 column on very small screens */
+  .issue-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  /* Article cards: 1 column */
+  .article-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Article header */
+  .article-header h1 {
+    font-size: 1.3rem;
+  }
+
+  /* Page map: smaller boxes */
+  .page-map .pg {
+    width: 34px;
+    height: 40px;
+    font-size: 0.6rem;
+  }
+
+  /* Prev/next nav stacks */
+  .article-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .article-nav .nav-next {
+    margin-left: 0;
+    align-self: flex-end;
+  }
+
+  /* Table: allow horizontal scroll */
+  .article-body table {
+    font-size: 0.8em;
+  }
+
+  /* Search */
+  .search-box {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+  .issue-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .article-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Print styles */
+@media print {
+  .site-nav,
+  .article-nav,
+  .breadcrumb,
+  .site-footer,
+  .search-form,
+  .search-filters {
+    display: none;
+  }
+
+  body {
+    padding-top: 0;
+    background: white;
+    color: black;
+    font-size: 12pt;
+    line-height: 1.8;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .article-body h1,
+  .article-body h2,
+  .article-body h3 {
+    color: black;
+    page-break-after: avoid;
+  }
+
+  .article-body p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  a[href]::after {
+    content: none;
+  }
+}
