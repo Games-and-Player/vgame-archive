@@ -55,7 +55,7 @@
 | 34 | 米老鼠和唐老鸭 | [articles/mickey-donald.md](articles/mickey-donald.md) |
 | 36 | 铁甲万能侠 | [articles/mazinger.md](articles/mazinger.md) |
 | 40 | 格斗四人组 | [articles/bare-knuckle.md](articles/bare-knuckle.md) |
-| 42 | 午夜克星 | — |
+| 42 | 午夜克星 | [articles/midnight-resistance.md](articles/midnight-resistance.md) |
 | 44 | 亚生命战争 | — |
 | 46 | 紫禁城 | — |
 | 47 | 世界杯足球 | — |
