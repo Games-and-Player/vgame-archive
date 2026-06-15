@@ -71,10 +71,10 @@
 
 ### 渗透波
 
-| 页 | 标题 |
-|---|---|
-| 55 | 勇者五代三潮 |
-| 56 | 世嘉 VR |
+| 页 | 标题 | 文件 |
+|---|---|---|
+| 55 | 勇者五代之潮 | [articles/dq5-wave.md](articles/dq5-wave.md) |
+| 56 | 世嘉 VR | [articles/sega-vr.md](articles/sega-vr.md) |
 
 ### 大侦探俱乐部
 
