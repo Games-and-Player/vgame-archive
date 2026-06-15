@@ -98,7 +98,8 @@ games: [游戏 slug 列表]
 - [x] **articles/world-cup-soccer.md** — 《世界杯超级足球赛》PDF p.53-54（刊页 47-48）**全文完结**，无署名。Tecmo World Cup '92，三种阵型介绍 + 球场风采
 - [x] **articles/nba-basketball.md** — 《NBA 美国职业篮球赛》PDF p.55（刊页 49）**全文完结**，作者：刘儒德。NBA Action，操作表 + 球队选择 + 赛制介绍。**世嘉世家栏目全部完结**
 - [x] **articles/sega-vs-nintendo.md** — 《SEGA世嘉大战任天堂 谁是老大》PDF p.56-57（刊页 50-51）**全文完结**，作者：林明正（译）。翻译文章，基于1992年CES的Sega vs Nintendo行业分析；台式中文行文
-- [ ] 昨与今・十年辉煌任天堂（刊页 52+ / PDF p.58+）
+- [x] **articles/nintendo-decade.md** — 《十年辉煌任天堂》PDF p.58-59（刊页 52-53）**全文完结**，作者：邱兆龙。任天堂十年史（1983-1993），涵盖 FC/NES/Game Boy + NEC PC Engine 竞争史；磁碟机（备份器）详述为珍贵文化史料；[待续]标记
+- [ ] 昨与今・任天堂探秘（刊页 54 / PDF p.60）
 - [ ] 昨与今 / 渗透波 / 大侦探俱乐部 / 打余茶座 / 死亡游戏 / 新手培训车间 / 二手货市场 / 编后谈
 
 ## 已识别但未解决的转录问题

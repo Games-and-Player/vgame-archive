@@ -66,7 +66,7 @@
 | 页 | 标题 | 文件 |
 |---|---|---|
 | 50 | 世嘉大战任天堂 | [articles/sega-vs-nintendo.md](articles/sega-vs-nintendo.md) |
-| 52 | 十年辉煌任天堂 | — |
+| 52 | 十年辉煌任天堂 | [articles/nintendo-decade.md](articles/nintendo-decade.md) |
 | 54 | 任天堂探秘 | — |
 
 ### 渗透波
