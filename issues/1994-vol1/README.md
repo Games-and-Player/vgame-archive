@@ -52,8 +52,8 @@
 |---|---|---|
 | 彩 2 | 音速小子索尼克 II | [articles/sonic2.md](articles/sonic2.md) |
 | 彩 4 | 忍者龟 | [articles/tmnt.md](articles/tmnt.md) |
-| 34 | 米老鼠与唐老鸭 | — |
-| 36 | 铁甲万能侠 | — |
+| 34 | 米老鼠和唐老鸭 | [articles/mickey-donald.md](articles/mickey-donald.md) |
+| 36 | 铁甲万能侠 | [articles/mazinger.md](articles/mazinger.md) |
 | 40 | 格斗四人组 | — |
 | 42 | 午夜克星 | — |
 | 44 | 亚生命战争 | — |
@@ -121,6 +121,8 @@
 - [x] 快打至尊（刊页 32 + 彩1 / PDF p.34-35）— 全文完结，无署名；PC 游戏室栏目专题
 - [x] 音速小子索尼克 II（彩 2-3 / PDF p.36-37）— 全文完结，无署名；彩色插页
 - [x] 忍者龟（彩 4 + 刊页 33 / PDF p.38-39）— 全文完结，无署名；彩色 + 黑白混合
+- [x] 米老鼠和唐老鸭（刊页 34-35 / PDF p.40-41）— 全文完结，无署名；叙事式游戏介绍，World of Illusion
+- [x] 铁甲万能侠（刊页 36-39 / PDF p.42-45）— 全文完结，作者：刘儒德；4 页，Mazin Saga: Mutant Fighter，含招式详解 + 五关攻略
 - [ ] ...
 
 ## 栏目设计备忘（民间杂志学观察）
