@@ -91,8 +91,9 @@ games: [游戏 slug 列表]
 - [x] **articles/tmnt.md** — 《忍者龟》PDF p.38-39（彩4 + 刊页 33）**全文完结**，无署名。SEGA 版 TMNT 角色 + 招式详解
 - [x] **articles/mickey-donald.md** — 《米老鼠和唐老鸭》PDF p.40-41（刊页 34-35）**全文完结**，无署名。叙事式游戏介绍，World of Illusion Starring Mickey Mouse and Donald Duck
 - [x] **articles/mazinger.md** — 《铁甲万能侠》PDF p.42-45（刊页 36-39）**全文完结**，作者：刘儒德。4 页长文，Mazin Saga: Mutant Fighter，含招式详解 + 五关攻略
-- [ ] 世嘉世家・格斗四人组（刊页 40+ / PDF p.46+）
-- [ ] 世嘉世家系列余篇（刊页 40-49）
+- [x] **articles/bare-knuckle.md** — 《格斗四人组》PDF p.46-47（刊页 40-41）**全文完结**，无署名。Bare Knuckle II / Streets of Rage 2，角色介绍（MAX/AXEL/EOOLE/BLAZE）+ 剧情预览
+- [ ] 世嘉世家・午夜克星（刊页 42+ / PDF p.48+）
+- [ ] 世嘉世家系列余篇（刊页 44-49）
 - [ ] 昨与今 / 渗透波 / 大侦探俱乐部 / 打余茶座 / 死亡游戏 / 新手培训车间 / 二手货市场 / 编后谈
 
 ## 已识别但未解决的转录问题

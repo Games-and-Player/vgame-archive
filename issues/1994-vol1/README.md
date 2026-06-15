@@ -54,7 +54,7 @@
 | 彩 4 | 忍者龟 | [articles/tmnt.md](articles/tmnt.md) |
 | 34 | 米老鼠和唐老鸭 | [articles/mickey-donald.md](articles/mickey-donald.md) |
 | 36 | 铁甲万能侠 | [articles/mazinger.md](articles/mazinger.md) |
-| 40 | 格斗四人组 | — |
+| 40 | 格斗四人组 | [articles/bare-knuckle.md](articles/bare-knuckle.md) |
 | 42 | 午夜克星 | — |
 | 44 | 亚生命战争 | — |
 | 46 | 紫禁城 | — |
