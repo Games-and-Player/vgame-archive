@@ -8,3 +8,12 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Brainstorm sessions
+.superpowers/
+
+# Build output
+dist/
+
+# Docs (brainstorm sessions)
+docs/
