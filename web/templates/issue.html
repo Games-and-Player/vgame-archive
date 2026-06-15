@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ issue.title }}{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb">
+  <a href="/">首页</a>
+  <span class="sep">／</span>
+  <span>{{ issue.title }}</span>
+</nav>
+
+<h1 class="issue-heading">{{ issue.title }}</h1>
+
+<div class="page-map">
+  {% for entry in issue.all_entries() %}
+  {% if entry.pdf_pages is defined %}
+  <div class="pg done" title="{{ entry.title }}">
+    p{{ entry.pdf_pages[0] }}-{{ entry.pdf_pages[-1] }}<br>{{ entry.title[:4] }}
+  </div>
+  {% else %}
+  <div class="pg done" title="{{ entry.title }}">
+    p{{ entry.pdf_page }}<br>{{ entry.title[:4] }}
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+
+<p class="progress-line">{{ issue.articles | length + issue.pages | length }} 篇已转录</p>
+
+{% for section_name, entries in issue.entries_by_section().items() %}
+<div class="section-group">
+  <span class="section-tag">{{ section_name }}</span>
+  <div class="article-cards">
+    {% for entry in entries %}
+    <a class="article-card" href="/{{ issue.slug }}/{{ entry.slug }}/">
+      {% if entry.pdf_pages is defined %}
+      <span class="page-range">刊页 {{ entry.mag_pages[0] }}-{{ entry.mag_pages[-1] }} · {{ entry.page_count }} 页</span>
+      {% else %}
+      <span class="page-range">刊页 {{ entry.mag_page or '—' }}</span>
+      {% endif %}
+      <span class="entry-title">{{ entry.title }}</span>
+      {% if entry.author %}
+      <span class="entry-author">● {{ entry.author }}</span>
+      {% endif %}
+      {% if entry.pdf_pages is defined %}
+      <span class="entry-status">{{ entry.status }}</span>
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

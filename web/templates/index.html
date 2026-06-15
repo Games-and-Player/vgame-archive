@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}首页{% endblock %}
+
+{% block content %}
+<header class="site-header">
+  <h1 class="site-title">Game 集中营 · 数字归档</h1>
+  <p class="site-subtitle">90 年代中文游戏杂志数字化计划</p>
+</header>
+
+<div class="issue-grid">
+  {% for issue in issues %}
+  <a class="issue-card" href="/{{ issue.slug }}/">
+    <h2 class="issue-title">{{ issue.title }}</h2>
+    <div class="issue-stats">
+      <span>{{ issue.articles | length }} 篇文章</span>
+      <span>{{ issue.pages | length }} 个页面</span>
+    </div>
+    <div class="issue-progress">
+      {{ issue.articles | length + issue.pages | length }} 篇已转录
+    </div>
+  </a>
+  {% else %}
+  <p class="empty-notice">暂无期刊数据。</p>
+  {% endfor %}
+</div>
+{% endblock %}

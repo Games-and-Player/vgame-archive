@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}{{ entry.title }}{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb">
+  <a href="/">首页</a>
+  <span class="sep">／</span>
+  <a href="/{{ issue.slug }}/">{{ issue.title }}</a>
+  <span class="sep">／</span>
+  <span>{{ entry.section }}</span>
+  <span class="sep">／</span>
+  <span>{{ entry.title }}</span>
+</nav>
+
+<div class="article-header">
+  <span class="section-tag">{{ entry.section }}</span>
+  <h1>{{ entry.title }}</h1>
+  <div class="article-meta">
+    {% if entry.author %}● {{ entry.author }} ｜ {% endif %}
+    刊页 {{ entry.mag_page or '—' }}
+  </div>
+</div>
+
+<div class="article-body">
+  {{ entry.body_html | safe }}
+</div>
+
+<nav class="article-nav">
+  {% if prev_entry %}
+  <a class="nav-prev" href="/{{ issue.slug }}/{{ prev_entry.slug }}/">← {{ prev_entry.title }}</a>
+  {% endif %}
+  {% if next_entry %}
+  <a class="nav-next" href="/{{ issue.slug }}/{{ next_entry.slug }}/">{{ next_entry.title }} →</a>
+  {% endif %}
+</nav>
+{% endblock %}
