@@ -56,7 +56,7 @@
 | 36 | 铁甲万能侠 | [articles/mazinger.md](articles/mazinger.md) |
 | 40 | 格斗四人组 | [articles/bare-knuckle.md](articles/bare-knuckle.md) |
 | 42 | 午夜克星 | [articles/midnight-resistance.md](articles/midnight-resistance.md) |
-| 44 | 亚生命战争 | — |
+| 44 | 亚生命战争 | [articles/bio-hazard-battle.md](articles/bio-hazard-battle.md) |
 | 46 | 紫禁城 | — |
 | 47 | 世界杯足球 | — |
 | 49 | NBA 职业篮球 | — |

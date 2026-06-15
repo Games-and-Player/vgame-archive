@@ -93,8 +93,9 @@ games: [游戏 slug 列表]
 - [x] **articles/mazinger.md** — 《铁甲万能侠》PDF p.42-45（刊页 36-39）**全文完结**，作者：刘儒德。4 页长文，Mazin Saga: Mutant Fighter，含招式详解 + 五关攻略
 - [x] **articles/bare-knuckle.md** — 《格斗四人组》PDF p.46-47（刊页 40-41）**全文完结**，无署名。Bare Knuckle II / Streets of Rage 2，角色介绍（MAX/AXEL/EOOLE/BLAZE）+ 剧情预览
 - [x] **articles/midnight-resistance.md** — 《午夜克星攻略》PDF p.48-49（刊页 42-43）**全文完结**，无署名。Midnight Resistance（Data East 1990），9 关全攻略，港式中文行文
-- [ ] 世嘉世家・亚生命战争（刊页 44+ / PDF p.50+）
-- [ ] 世嘉世家系列余篇（刊页 46-49）
+- [x] **articles/bio-hazard-battle.md** — 《亚生命战争》PDF p.50-51（刊页 44-45）**全文完结**，作者：刘儒德。Bio-Hazard Battle / Crying（Sega 1992），射击游戏赏析，生物造型评论
+- [ ] 世嘉世家・紫禁城（刊页 46+ / PDF p.52+）
+- [ ] 世嘉世家系列余篇（刊页 47-49）
 - [ ] 昨与今 / 渗透波 / 大侦探俱乐部 / 打余茶座 / 死亡游戏 / 新手培训车间 / 二手货市场 / 编后谈
 
 ## 已识别但未解决的转录问题
