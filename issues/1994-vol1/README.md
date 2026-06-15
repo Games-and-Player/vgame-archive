@@ -59,7 +59,7 @@
 | 44 | 亚生命战争 | [articles/bio-hazard-battle.md](articles/bio-hazard-battle.md) |
 | 46 | 紫禁城 | [articles/shikinjo.md](articles/shikinjo.md) |
 | 47 | 世界杯足球 | [articles/world-cup-soccer.md](articles/world-cup-soccer.md) |
-| 49 | NBA 职业篮球 | — |
+| 49 | NBA 职业篮球 | [articles/nba-basketball.md](articles/nba-basketball.md) |
 
 ### 昨与今
 

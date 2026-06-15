@@ -96,7 +96,8 @@ games: [游戏 slug 列表]
 - [x] **articles/bio-hazard-battle.md** — 《亚生命战争》PDF p.50-51（刊页 44-45）**全文完结**，作者：刘儒德。Bio-Hazard Battle / Crying（Sega 1992），射击游戏赏析，生物造型评论
 - [x] **articles/shikinjo.md** — 《紫禁城》PDF p.52-53（刊页 46-47）**全文完结**，无署名。Shikinjō（Sunsoft 1991），麻将牌消除益智游戏，500 关；p.53 与世界杯共享页面
 - [x] **articles/world-cup-soccer.md** — 《世界杯超级足球赛》PDF p.53-54（刊页 47-48）**全文完结**，无署名。Tecmo World Cup '92，三种阵型介绍 + 球场风采
-- [ ] 世嘉世家・NBA 职业篮球（刊页 49+ / PDF p.55+）
+- [x] **articles/nba-basketball.md** — 《NBA 美国职业篮球赛》PDF p.55（刊页 49）**全文完结**，作者：刘儒德。NBA Action，操作表 + 球队选择 + 赛制介绍。**世嘉世家栏目全部完结**
+- [ ] 昨与今・世嘉大战任天堂（刊页 50+ / PDF p.56+）
 - [ ] 昨与今 / 渗透波 / 大侦探俱乐部 / 打余茶座 / 死亡游戏 / 新手培训车间 / 二手货市场 / 编后谈
 
 ## 已识别但未解决的转录问题
