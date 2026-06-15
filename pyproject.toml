@@ -11,3 +11,8 @@ dependencies = [
     "pillow>=12.2.0",
     "pdf2image>=1.17.0",
 ]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0",
+]
