@@ -25,6 +25,17 @@
   {{ entry.body_html | safe }}
 </div>
 
+<details class="scan-pages" open>
+  <summary>原始扫描</summary>
+  <div class="scan-gallery">
+    <figure class="scan-figure">
+      <img src="{{ base }}{{ issue.slug }}/assets/page-{{ '%03d' | format(entry.pdf_page) }}.webp"
+           alt="PDF p.{{ entry.pdf_page }}" loading="lazy">
+      <figcaption>PDF p.{{ entry.pdf_page }}</figcaption>
+    </figure>
+  </div>
+</details>
+
 <nav class="article-nav">
   {% if prev_entry %}
   <a class="nav-prev" href="{{ base }}{{ issue.slug }}/{{ prev_entry.slug }}/">← {{ prev_entry.title }}</a>

@@ -1065,6 +1065,65 @@ a:focus-visible {
 }
 
 /* Print styles */
+/* Scan gallery */
+.scan-pages {
+  margin-top: 3em;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1em;
+}
+
+.scan-pages summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: var(--color-heading);
+  padding: 0.5em 0;
+}
+
+.scan-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.scan-figure {
+  margin: 0;
+  max-width: 480px;
+  flex: 1 1 400px;
+}
+
+.scan-figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  cursor: zoom-in;
+}
+
+.scan-figure img.zoomed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  border: none;
+  border-radius: 0;
+  cursor: zoom-out;
+}
+
+.scan-figure figcaption {
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--color-meta);
+  margin-top: 0.3em;
+}
+
 @media print {
   .site-nav,
   .article-nav,

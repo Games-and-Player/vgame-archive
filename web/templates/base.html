@@ -22,5 +22,12 @@
   <footer class="site-footer">
     <p>90 年代中文游戏杂志数字归档计划</p>
   </footer>
+  <script>
+  document.addEventListener('click', function(e) {
+    if (e.target.matches('.scan-figure img')) {
+      e.target.classList.toggle('zoomed');
+    }
+  });
+  </script>
 </body>
 </html>
