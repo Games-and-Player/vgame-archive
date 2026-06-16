@@ -94,8 +94,8 @@
 | 页 | 标题 | 备注 |
 |---|---|---|
 | 60 | 死亡游戏 | [articles/death-game.md](articles/death-game.md)，道格・霍尼格著/丁建民译/幻想者编选 |
-| 62 | 新手培训车间 | |
-| 63 | 二手货市场 | 读者分类广告 |
+| 62 | 新手培训车间 | [articles/beginner-workshop.md](articles/beginner-workshop.md) |
+| 63 | 二手货市场 | [articles/flea-market.md](articles/flea-market.md)，读者分类广告 |
 | 64 | 电玩大势——编后谈 | |
 
 ### 目录 / 版权页
