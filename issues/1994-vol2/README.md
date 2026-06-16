@@ -48,8 +48,8 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 |---|---|---|
 | 4 | 吞食天地 II —诸葛孔明传必胜攻略法 | [articles/tenchi-wo-kurau2.md](articles/tenchi-wo-kurau2.md) |
 | 29 | 赌神 | [articles/dushen.md](articles/dushen.md) |
-| 36 | 大航海时代 | |
-| 37 | 铁甲战队 | |
+| 36 | 大航海时代 | [articles/uncharted-waters.md](articles/uncharted-waters.md) |
+| 37 | 铁甲战队 2 | [articles/metal-max-2.md](articles/metal-max-2.md) |
 
 ### 世嘉世家（世嘉系）
 
@@ -64,7 +64,7 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 
 | 页 | 标题 | 文件 |
 |---|---|---|
-| 33 | 笑傲江湖 | |
+| 33 | 笑傲江湖 | [articles/xiao-ao-jiang-hu.md](articles/xiao-ao-jiang-hu.md) |
 
 ### 渗透波
 
@@ -149,4 +149,7 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 - [x] 鬼屋 III（PDF p.29，刊页 27，1页）
 - [x] 欧陆战线（PDF p.30，刊页 28，1页）
 - [x] 赌神（PDF p.31-37，刊页 29-35，7页）
+- [x] 笑傲江湖（PDF p.38-41，刊页 33-35 + 彩页，4页）
+- [x] 大航海时代（PDF p.42，刊页 36，1页）
+- [x] 铁甲战队 2（PDF p.43，刊页 37，1页）
 - [ ] ...
