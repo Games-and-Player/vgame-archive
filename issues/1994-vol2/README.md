@@ -88,12 +88,12 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 | 46 | RPG 的回顾与展望 | [articles/rpg-retrospective.md](articles/rpg-retrospective.md) |
 | 47 | 三国游戏纵横谈（一） | |
 
-### 摔酒天地
+### 挥洒天地
 
 | 页 | 标题 | 文件 |
 |---|---|---|
-| 49 | 魂斗罗闪电出击 | |
-| 50 | 摇滚旋风 | |
+| 49 | 魂斗罗闪电出击恶魔城 | [pages/p055.md](pages/p055.md) |
+| 50 | 摇滚旋风 | [articles/yaogun-xuanfeng.md](articles/yaogun-xuanfeng.md) |
 
 ### 幻想者
 
@@ -157,4 +157,6 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 - [x] 十年辉煌任天堂·续篇（PDF p.46-48，刊页 40-42，3页）
 - [x] TV GAME ABC 漫画（PDF p.49-51，刊页 43-45，3页）
 - [x] RPG的回顾与展望（PDF p.52-54，刊页 46-48，3页）
+- [x] 魂斗罗闪电出击恶魔城（PDF p.55，刊页 49，1页）
+- [x] 摇滚旋风（PDF p.56-59，刊页 50-53，4页）
 - [ ] ...
