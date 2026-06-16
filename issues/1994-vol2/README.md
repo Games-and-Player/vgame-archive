@@ -85,7 +85,7 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 | 19 | 浅谈 RPG | [articles/rpg-essay.md](articles/rpg-essay.md) |
 | 40 | 十年辉煌任天堂（续篇） | [articles/nintendo-decade.md](articles/nintendo-decade.md) |
 | 43 | TV GAME ABC（漫画） | [articles/tv-game-abc.md](articles/tv-game-abc.md) |
-| 46 | RPG 的回顾与展望 | |
+| 46 | RPG 的回顾与展望 | [articles/rpg-retrospective.md](articles/rpg-retrospective.md) |
 | 47 | 三国游戏纵横谈（一） | |
 
 ### 摔酒天地
@@ -156,4 +156,5 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 - [x] 渗透波·刊页 39（PDF p.44，LOOK-ON + 汽车 + DUO-R + NEC + 垄断）
 - [x] 十年辉煌任天堂·续篇（PDF p.46-48，刊页 40-42，3页）
 - [x] TV GAME ABC 漫画（PDF p.49-51，刊页 43-45，3页）
+- [x] RPG的回顾与展望（PDF p.52-54，刊页 46-48，3页）
 - [ ] ...
