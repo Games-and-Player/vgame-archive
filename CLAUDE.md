@@ -13,6 +13,17 @@ uv run python -m web.serve              # 本地预览（8000 端口）
 
 **不要用 `python` 直接执行**——pyenv 版本不匹配，必须通过 `uv run`。
 
+### OCR 提交前检查
+
+转录完成后、提交前，务必检查 ASCII 双引号泄漏（正文必须用 `""` 不用 `"`）：
+
+```bash
+# 扫描正文中的 ASCII 双引号（frontmatter 内的不算）
+grep -rn '"' issues/*/articles/*.md issues/*/pages/*.md | grep -v '^.*:---$'
+```
+
+如有输出，用 `/tmp/fix-quotes.py` 批量修复（脚本会跳过 frontmatter）。
+
 ## 目录结构
 
 ```
