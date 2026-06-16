@@ -491,12 +491,7 @@ a:focus-visible {
   margin-bottom: 0.25em;
 }
 
-/* Don't indent paragraphs that follow headings or are inside special blocks */
-.article-body h1 + p,
-.article-body h2 + p,
-.article-body h3 + p,
-.article-body h4 + p,
-.article-body blockquote p,
+/* Don't indent inside special blocks */
 .article-body aside p,
 .article-body .boxed p,
 .article-body figcaption p,
