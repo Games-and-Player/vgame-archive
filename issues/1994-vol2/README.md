@@ -83,7 +83,7 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 |---|---|---|
 | 17 | 《三国》游戏节目纵横谈（上） | [articles/sanguo-games-review.md](articles/sanguo-games-review.md) |
 | 19 | 浅谈 RPG | [articles/rpg-essay.md](articles/rpg-essay.md) |
-| 40 | 十年辉煌任天堂（续完） | |
+| 40 | 十年辉煌任天堂（续篇） | [articles/nintendo-decade.md](articles/nintendo-decade.md) |
 | 43 | TV GAME ABC（漫画） | |
 | 46 | RPG 的回顾与展望 | |
 | 47 | 三国游戏纵横谈（一） | |
@@ -154,4 +154,5 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 - [x] 铁甲战队 2（PDF p.43，刊页 37，1页）
 - [x] 渗透波·刊页 38（PDF p.45，超级闯关族麦考利 + 欧洲市场）
 - [x] 渗透波·刊页 39（PDF p.44，LOOK-ON + 汽车 + DUO-R + NEC + 垄断）
+- [x] 十年辉煌任天堂·续篇（PDF p.46-48，刊页 40-42，3页）
 - [ ] ...
