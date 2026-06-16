@@ -47,7 +47,7 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 | 页 | 标题 | 文件 |
 |---|---|---|
 | 4 | 吞食天地 II —诸葛孔明传必胜攻略法 | [articles/tenchi-wo-kurau2.md](articles/tenchi-wo-kurau2.md) |
-| 29 | 赌神 | |
+| 29 | 赌神 | [articles/dushen.md](articles/dushen.md) |
 | 36 | 大航海时代 | |
 | 37 | 铁甲战队 | |
 
@@ -55,10 +55,10 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 
 | 页 | 标题 | 文件 |
 |---|---|---|
-| 20 | 饿狼传说 | |
-| 26 | 苍狼与白鹿 | |
-| 27 | 鬼屋 III | |
-| 28 | 欧陆战线 | |
+| 20 | 饿狼传说 | [articles/fatal-fury.md](articles/fatal-fury.md) |
+| 26 | 苍狼与白鹿 | [articles/genghis-khan-2.md](articles/genghis-khan-2.md) |
+| 27 | 鬼屋 III | [articles/splatterhouse-3.md](articles/splatterhouse-3.md) |
+| 28 | 欧陆战线 | [articles/european-front.md](articles/european-front.md) |
 
 ### PC 游戏室
 
@@ -144,9 +144,9 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 - [x] 吞食天地 II（PDF p.6-18，刊页 4-16，13页）
 - [x] 《三国》游戏节目纵横谈·上（PDF p.19-20，刊页 17-18）
 - [x] 浅谈 RPG（PDF p.21，刊页 19）
-- [ ] 饿狼传说（刊页 20-?）
-- [ ] 苍狼与白鹿（刊页 26）
-- [ ] 鬼屋 III（刊页 27）
-- [ ] 欧陆战线（刊页 28）
-- [ ] 赌神（刊页 29-?）
+- [x] 饿狼传说（PDF p.22-27，刊页 20-25，6页）
+- [x] 苍狼与白鹿（PDF p.28，刊页 26，1页）
+- [x] 鬼屋 III（PDF p.29，刊页 27，1页）
+- [x] 欧陆战线（PDF p.30，刊页 28，1页）
+- [x] 赌神（PDF p.31-37，刊页 29-35，7页）
 - [ ] ...
