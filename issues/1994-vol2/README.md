@@ -81,6 +81,8 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 
 | 页 | 标题 | 文件 |
 |---|---|---|
+| 17 | 《三国》游戏节目纵横谈（上） | [articles/sanguo-games-review.md](articles/sanguo-games-review.md) |
+| 19 | 浅谈 RPG | [articles/rpg-essay.md](articles/rpg-essay.md) |
 | 40 | 十年辉煌任天堂（续完） | |
 | 43 | TV GAME ABC（漫画） | |
 | 46 | RPG 的回顾与展望 | |
@@ -140,7 +142,8 @@ PDF 页 = 刊页 + 2（封面占 PDF p.1，彩页日本街机占 PDF p.3）
 - [x] 目录续（PDF p.4，刊页 2）
 - [x] 卷首语"盼"（PDF p.5，刊页 3）
 - [x] 吞食天地 II（PDF p.6-18，刊页 4-16，13页）
-- [ ] 《三国》游戏节目纵横谈·上（PDF p.19-?，刊页 17-?）
+- [x] 《三国》游戏节目纵横谈·上（PDF p.19-20，刊页 17-18）
+- [x] 浅谈 RPG（PDF p.21，刊页 19）
 - [ ] 饿狼传说（刊页 20-?）
 - [ ] 苍狼与白鹿（刊页 26）
 - [ ] 鬼屋 III（刊页 27）
