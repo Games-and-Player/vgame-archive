@@ -31,7 +31,7 @@ jobs:
 
       - run: uv sync
 
-      - run: uv run python -m web.build
+      - run: uv run python -m web.build --base "/${{ github.event.repository.name }}/"
 
       - uses: actions/configure-pages@v5
 

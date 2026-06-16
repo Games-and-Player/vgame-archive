@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Game 集中营{% endblock %} — 数字归档</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="{{ base }}static/style.css">
+  <script>window.__BASE__ = "{{ base }}";</script>
 </head>
 <body>
   <nav class="site-nav">
-    <a class="brand" href="/">Game 集中营</a>
+    <a class="brand" href="{{ base }}">Game 集中营</a>
     <div class="nav-links">
-      <a href="/">首页</a>
+      <a href="{{ base }}">首页</a>
       <!-- future: 游戏索引, 译名表 -->
     </div>
-    <a class="search-link" href="/search/">搜索</a>
+    <a class="search-link" href="{{ base }}search/">搜索</a>
   </nav>
   <main class="container">
     {% block content %}{% endblock %}

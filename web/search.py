@@ -23,7 +23,7 @@ def _snippet(body_md: str, max_len: int = 300) -> str:
     return joined
 
 
-def build_search_index(issues: list[Issue]) -> list[dict]:
+def build_search_index(issues: list[Issue], base: str = "/") -> list[dict]:
     entries = []
     for issue in issues:
         for article in issue.articles:
@@ -35,7 +35,7 @@ def build_search_index(issues: list[Issue]) -> list[dict]:
                 "issue": issue.slug,
                 "slug": article.slug,
                 "kind": "article",
-                "url": f"/{issue.slug}/{article.slug}/",
+                "url": f"{base}{issue.slug}/{article.slug}/",
                 "snippet": _snippet(article.body_md),
             })
         for page in issue.pages:
@@ -47,7 +47,7 @@ def build_search_index(issues: list[Issue]) -> list[dict]:
                 "issue": issue.slug,
                 "slug": page.slug,
                 "kind": "page",
-                "url": f"/{issue.slug}/{page.slug}/",
+                "url": f"{base}{issue.slug}/{page.slug}/",
                 "snippet": _snippet(page.body_md),
             })
     return entries

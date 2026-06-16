@@ -3,7 +3,7 @@
 
 {% block content %}
 <nav class="breadcrumb">
-  <a href="/">首页</a>
+  <a href="{{ base }}">首页</a>
   <span class="sep">／</span>
   <span>{{ issue.title }}</span>
 </nav>
@@ -31,7 +31,7 @@
   <span class="section-tag">{{ section_name }}</span>
   <div class="article-cards">
     {% for entry in entries %}
-    <a class="article-card" href="/{{ issue.slug }}/{{ entry.slug }}/">
+    <a class="article-card" href="{{ base }}{{ issue.slug }}/{{ entry.slug }}/">
       {% if entry.pdf_pages is defined %}
       <span class="page-range">刊页 {{ entry.mag_pages[0] }}-{{ entry.mag_pages[-1] }} · {{ entry.page_count }} 页</span>
       {% else %}

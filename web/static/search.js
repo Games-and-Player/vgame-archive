@@ -3,7 +3,8 @@ let fuse = null;
 let allData = [];
 
 async function initSearch() {
-  const resp = await fetch('/search-index.json');
+  const base = window.__BASE__ || '/';
+  const resp = await fetch(base + 'search-index.json');
   allData = await resp.json();
   fuse = new Fuse(allData, {
     keys: [

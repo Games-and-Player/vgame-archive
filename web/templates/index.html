@@ -9,7 +9,7 @@
 
 <div class="issue-grid">
   {% for issue in issues %}
-  <a class="issue-card" href="/{{ issue.slug }}/">
+  <a class="issue-card" href="{{ base }}{{ issue.slug }}/">
     <h2 class="issue-title">{{ issue.title }}</h2>
     <div class="issue-stats">
       <span>{{ issue.articles | length }} 篇文章</span>

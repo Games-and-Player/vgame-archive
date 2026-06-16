@@ -3,9 +3,9 @@
 
 {% block content %}
 <nav class="breadcrumb">
-  <a href="/">首页</a>
+  <a href="{{ base }}">首页</a>
   <span class="sep">／</span>
-  <a href="/{{ issue.slug }}/">{{ issue.title }}</a>
+  <a href="{{ base }}{{ issue.slug }}/">{{ issue.title }}</a>
   <span class="sep">／</span>
   <span>{{ entry.section }}</span>
   <span class="sep">／</span>
@@ -27,10 +27,10 @@
 
 <nav class="article-nav">
   {% if prev_entry %}
-  <a class="nav-prev" href="/{{ issue.slug }}/{{ prev_entry.slug }}/">← {{ prev_entry.title }}</a>
+  <a class="nav-prev" href="{{ base }}{{ issue.slug }}/{{ prev_entry.slug }}/">← {{ prev_entry.title }}</a>
   {% endif %}
   {% if next_entry %}
-  <a class="nav-next" href="/{{ issue.slug }}/{{ next_entry.slug }}/">{{ next_entry.title }} →</a>
+  <a class="nav-next" href="{{ base }}{{ issue.slug }}/{{ next_entry.slug }}/">{{ next_entry.title }} →</a>
   {% endif %}
 </nav>
 {% endblock %}

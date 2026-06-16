@@ -15,11 +15,18 @@ DEFAULT_OUTPUT = Path(__file__).parent.parent / "dist"
 def build_site(
     issues_dir: Path = DEFAULT_ISSUES,
     output_dir: Path = DEFAULT_OUTPUT,
+    base: str = "/",
 ):
+    if not base.startswith("/"):
+        base = "/" + base
+    if not base.endswith("/"):
+        base = base + "/"
+
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATES_DIR)),
         autoescape=True,
     )
+    env.globals["base"] = base
 
     # Load all issues
     issues: list[Issue] = []
@@ -92,7 +99,7 @@ def build_site(
     )
 
     # Search index JSON
-    index = build_search_index(issues)
+    index = build_search_index(issues, base=base)
     (output_dir / "search-index.json").write_text(
         json.dumps(index, ensure_ascii=False, indent=None), encoding="utf-8"
     )
@@ -101,5 +108,9 @@ def build_site(
 
 
 if __name__ == "__main__":
-    issues = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_ISSUES
-    build_site(issues_dir=issues)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("issues_dir", nargs="?", default=str(DEFAULT_ISSUES))
+    parser.add_argument("--base", default="/")
+    args = parser.parse_args()
+    build_site(issues_dir=Path(args.issues_dir), base=args.base)
