@@ -28,9 +28,14 @@ def build_site(
     )
     env.globals["base"] = base
 
+    def _issue_sort_key(d: Path) -> tuple:
+        parts = d.name.split("-", 1)
+        year, rest = parts[0], parts[1] if len(parts) > 1 else ""
+        return (year, 0 if rest.startswith("vol") else 1, rest)
+
     # Load all issues
     issues: list[Issue] = []
-    for d in sorted(issues_dir.iterdir()):
+    for d in sorted(issues_dir.iterdir(), key=_issue_sort_key):
         if d.is_dir() and (d / "README.md").exists():
             issues.append(load_issue(d))
 

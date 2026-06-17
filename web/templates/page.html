@@ -17,7 +17,7 @@
   <h1>{{ entry.title }}</h1>
   <div class="article-meta">
     {% if entry.author %}● {{ entry.author }} ｜ {% endif %}
-    刊页 {{ entry.mag_page or '—' }}
+    刊页 {{ entry.mag_pages | join(', ') if entry.mag_pages else '—' }}
   </div>
 </div>
 
@@ -26,13 +26,15 @@
 </div>
 
 <details class="scan-pages" open>
-  <summary>原始扫描</summary>
+  <summary>原始扫描（{{ entry.pdf_pages | length }} 页）</summary>
   <div class="scan-gallery">
+    {% for p in entry.pdf_pages %}
     <figure class="scan-figure">
-      <img src="{{ base }}{{ issue.slug }}/assets/page-{{ '%03d' | format(entry.pdf_page) }}.webp"
-           alt="PDF p.{{ entry.pdf_page }}" loading="lazy">
-      <figcaption>PDF p.{{ entry.pdf_page }}</figcaption>
+      <img src="{{ base }}{{ issue.slug }}/assets/page-{{ '%03d' | format(p) }}.webp"
+           alt="PDF p.{{ p }}" loading="lazy">
+      <figcaption>PDF p.{{ p }}</figcaption>
     </figure>
+    {% endfor %}
   </div>
 </details>
 

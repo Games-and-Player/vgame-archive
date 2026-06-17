@@ -32,15 +32,23 @@ class Page:
     title: str
     section: str
     author: str | None
-    pdf_page: int
-    mag_page: int | None
+    pdf_pages: list[int]
+    mag_pages: list[int]
     games: list[str]
     body_html: str
     body_md: str
 
     @property
+    def pdf_page(self) -> int:
+        return self.pdf_pages[0] if self.pdf_pages else 0
+
+    @property
+    def mag_page(self) -> int | None:
+        return self.mag_pages[0] if self.mag_pages else None
+
+    @property
     def first_pdf_page(self) -> int:
-        return self.pdf_page
+        return self.pdf_pages[0] if self.pdf_pages else 0
 
 
 @dataclass
@@ -104,13 +112,15 @@ def load_issue(issue_dir: Path) -> Issue:
         for md in sorted(pages_dir.glob("*.md")):
             data = parse_md_file(md)
             m = data["meta"]
+            raw_pdf = m.get("pdf_pages") or ([m["pdf_page"]] if m.get("pdf_page") else [])
+            raw_mag = m.get("mag_pages") or ([m["mag_page"]] if m.get("mag_page") else [])
             pages.append(Page(
                 slug=data["slug"],
                 title=m.get("title", data["slug"]),
                 section=m.get("section", ""),
                 author=m.get("author"),
-                pdf_page=m.get("pdf_page", 0),
-                mag_page=m.get("mag_page"),
+                pdf_pages=raw_pdf,
+                mag_pages=raw_mag,
                 games=m.get("games", []),
                 body_html=data["body_html"],
                 body_md=data["body_md"],
