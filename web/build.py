@@ -27,6 +27,7 @@ def build_site(
         autoescape=True,
     )
     env.globals["base"] = base
+    env.globals["assets_base"] = "https://game-magazine.nerdliu.cyou/"
 
     def _issue_sort_key(d: Path) -> tuple:
         parts = d.name.split("-", 1)

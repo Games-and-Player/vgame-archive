@@ -30,7 +30,7 @@
   <div class="scan-gallery">
     {% for p in entry.pdf_pages %}
     <figure class="scan-figure">
-      <img src="{{ base }}{{ issue.slug }}/assets/page-{{ '%03d' | format(p) }}.webp"
+      <img src="{{ assets_base }}{{ issue.slug }}/page-{{ '%03d' | format(p) }}.webp"
            alt="PDF p.{{ p }}" loading="lazy">
       <figcaption>PDF p.{{ p }}</figcaption>
     </figure>

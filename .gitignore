@@ -15,5 +15,8 @@ wheels/
 # Build output
 dist/
 
+# WebP scan images (hosted on Cloudflare R2)
+issues/*/assets/
+
 # Docs (brainstorm sessions)
 docs/
