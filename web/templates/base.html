@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Game 集中营{% endblock %} — 数字归档</title>
+  <title>{% block title %}遊戲誌{% endblock %} — 中文游戏杂志数字归档</title>
   <link rel="stylesheet" href="{{ base }}static/style.css">
   <script>window.__BASE__ = "{{ base }}";</script>
 </head>
 <body>
   <nav class="site-nav">
-    <a class="brand" href="{{ base }}">Game 集中营</a>
+    <a class="brand" href="{{ base }}">遊戲誌</a>
     <div class="nav-links">
       <a href="{{ base }}">首页</a>
       <!-- future: 游戏索引, 译名表 -->
@@ -20,7 +20,7 @@
     {% block content %}{% endblock %}
   </main>
   <footer class="site-footer">
-    <p>90 年代中文游戏杂志数字归档计划</p>
+    <p>中文游戏杂志数字归档计划</p>
   </footer>
   <script>
   document.addEventListener('click', function(e) {
