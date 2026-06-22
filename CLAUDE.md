@@ -7,40 +7,93 @@
 ```bash
 uv run python -m web.build              # 本地构建 → dist/
 uv run python -m web.build --base /X/   # 指定 base path（GitHub Pages 用）
-uv run python -m pytest tests/ -q       # 12 个测试
+uv run python -m pytest tests/ -q       # 测试
 uv run python -m web.serve              # 本地预览（8000 端口）
 ```
 
 **不要用 `python` 直接执行**——pyenv 版本不匹配，必须通过 `uv run`。
 
-### OCR 提交前检查
+## OCR 工作流（每期完整流程）
 
-转录完成后、提交前，务必检查 ASCII 双引号泄漏（正文必须用 `""` 不用 `"`）：
+### 1. 拆页 & 准备
 
 ```bash
-# 扫描正文中的 ASCII 双引号（frontmatter 内的不算）
-grep -rn '"' issues/*/articles/*.md issues/*/pages/*.md | grep -v '^.*:---$'
+mkdir -p issues/{slug}/{articles,pages,assets} /tmp/dianruan-{N}
+pdfseparate "源PDF路径" /tmp/dianruan-{N}/page-%d.pdf
 ```
 
-如有输出，用 `/tmp/fix-quotes.py` 批量修复（脚本会跳过 frontmatter）。
+### 2. 结构扫描
+
+派 agent 读取所有 PDF 页面，识别每页内容（文章/广告/插页），编制 README.md 目录。
+
+### 3. WebP 生成
+
+```bash
+# pdftoppm → PIL 裁白边 → WebP quality=82
+# 生成到 issues/{slug}/assets/page-NNN.webp（本地保留，不提交到 git）
+```
+
+### 4. OCR 转录
+
+派 agent 按 5-6 页一组读取 PDF，输出 Markdown 到 articles/ 和 pages/。
+
+### 5. 提交前检查
+
+```bash
+# ASCII 双引号检查（正文必须用 "" 不用 "）
+grep -rn '"' issues/{slug}/articles/*.md issues/{slug}/pages/*.md | grep -v '^.*:---$'
+# 用 fix-quotes 脚本批量修复
+# 运行测试 + 构建
+uv run python -m pytest tests/ -q
+uv run python -m web.build
+```
+
+### 6. 提交 & 推送
+
+```bash
+git add issues/{slug}/ STATE.md
+git commit -m "dianruan-{N}: 完结全文转录（...）"
+git push
+```
+
+### 7. WebP 上传到 R2
+
+```bash
+rclone sync issues/{slug}/assets/ r2:game-magazine/{slug}/ --include "*.webp"
+```
+
+### 8. 清理临时文件（每期必做！）
+
+```bash
+rm -rf /tmp/dianruan-{N}/          # 拆页临时 PDF
+rm -rf /tmp/pytest-of-pi/          # pytest 构建缓存（每次约 3GB）
+rm -f /tmp/gen-webp-*.py /tmp/fix-quotes-*.py  # 临时脚本
+# 每 2-3 期清理一次 agent 日志：
+# rm -rf ~/.claude/projects/.../subagents/ ~/.claude/projects/.../tool-results/
+```
+
+## 图片托管
+
+- **存储**：Cloudflare R2 桶 `game-magazine`
+- **域名**：`https://game-magazine.nerdliu.cyou/`
+- **URL 格式**：`https://game-magazine.nerdliu.cyou/{slug}/page-{NNN}.webp`
+- **同步工具**：`rclone sync ... r2:game-magazine/{slug}/`
+- **模板变量**：`assets_base`（在 `web/build.py` 中设置）
+- **Git 不追踪 WebP**：`.gitignore` 已排除 `issues/*/assets/`
 
 ## 目录结构
 
 ```
-issues/1994-vol1/           # 当前已完成的唯一一期
+issues/{slug}/
   README.md                 # 本期目录索引 + 编辑团队 + 进度
-  articles/*.md             # 长文章（30 篇，全文 OCR 完成）
-  pages/*.md                # 短栏目页（卷首语、目录等）
-  assets/page-NNN.webp      # 72 张整页扫描图（150 DPI，自动裁白边）
+  articles/*.md             # 长文章（全文 OCR）
+  pages/*.md                # 短栏目页（封面、目录、封三、封底等）
+  assets/page-NNN.webp      # 整页扫描图（本地保留，上传到 R2，不进 git）
 web/                        # 静态站点构建器（Jinja2 + Markdown）
-  build.py                  # 构建入口，支持 --base 参数
-  parser.py                 # Markdown 解析（frontmatter + md_in_html）
-  models.py                 # Issue / Article / Page 数据模型
-  search.py                 # 搜索索引生成
-  templates/                # Jinja2 模板
-  static/                   # CSS + JS
+  build.py                  # 构建入口，含 assets_base R2 域名配置
+  templates/                # Jinja2 模板（图片 src 指向 R2）
 tests/                      # pytest 测试
-CONVENTIONS.md              # 转录规范（frontmatter 格式、字段约束、校对原则）
+CONVENTIONS.md              # 转录规范
 STATE.md                    # 项目进度跟踪（会话间接续用）
 ```
 
@@ -53,29 +106,13 @@ STATE.md                    # 项目进度跟踪（会话间接续用）
 - 引号用中文全角 `""`，不用 ASCII `"`
 - 每篇文末必须有 `## 编辑备注` 段
 
-## PDF 源文件 & 页码偏移
-
-```
-原始 PDF：/home/pi/exdisk/books/H-杂志书刊/电子游戏软件/1994年/试刊GAME集中营VOL.1.pdf
-拆页命令：pdfseparate -f N -l N <pdf> /tmp/game-zjy/page-%d.pdf
-页码关系：PDF 页 = 刊页 + 2（无彩页区域）/ 刊页 + 6（彩页后，因 PDF p.35-38 为 4 张彩色插页）
-```
-
-## 整页扫描图生成
-
-```bash
-# 批量导出（已完成，存于 assets/）
-# 150 DPI + 自动裁白边（bg_threshold=225, blank_ratio=0.95）
-# 模板自动在文章底部显示对应扫描图，支持点击放大
-```
-
 ## 部署
 
 - 仓库：`Games-and-Player/vgame-archive`
 - GitHub Pages：https://games-and-player.github.io/vgame-archive/
 - Action 在 push master 时自动构建部署（`.github/workflows/pages.yml`）
-- `--base` 从 `${{ github.event.repository.name }}` 自动推导，换仓库无需改代码
+- `--base` 从 `${{ github.event.repository.name }}` 自动推导
 
 ## 当前状态
 
-《Game 集中营》1994 试刊号（VOL.1）**全 72 页 OCR 完成**，10 个栏目、30 篇文章/页面全文转录。详见 `STATE.md` 和 `issues/1994-vol1/README.md`。
+已完成 30 期（1994 试刊 VOL.1-2 + 1994 第 01-05 期 + 1995 第 06-12/15-17 期 + 1996 第 18-29 期 + 1997 第 30 期）。详见 `STATE.md`。
