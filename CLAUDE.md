@@ -113,6 +113,22 @@ STATE.md                    # 项目进度跟踪（会话间接续用）
 - Action 在 push master 时自动构建部署（`.github/workflows/pages.yml`）
 - `--base` 从 `${{ github.event.repository.name }}` 自动推导
 
+## Loop 配置
+
+定时自动执行 OCR 转录任务。Prompt 和 cron 表达式存于此处，作为唯一真实来源。
+
+```
+cron: 3 0,18 * * *
+prompt: 继续执行任务，如果上一个任务已完成，可以继续下一期内容的转录。如果不知道下一期是哪一期，可以自己从目录中寻找并推测。任务完成后，从 CLAUDE.md 的「Loop 配置」段读取 cron 和 prompt，先用 CronList 检查现有 job，如有则 CronDelete，再 CronCreate 新 job（重置 7 天过期）。注意：必须先 CronList 确认只删除本 loop 的 job，避免重复创建。
+```
+
+**执行规则：**
+1. Cron 触发 → 执行 prompt 中的转录任务
+2. 完成后（commit + push + R2 + cleanup）→ 读取本段配置
+3. `CronList` → 找到现有 job → `CronDelete` 该 job
+4. `CronCreate` 用上面的 cron 和 prompt → 重置 7 天计时器
+5. 如果 `CronList` 为空（已过期），跳过删除直接创建
+
 ## 当前状态
 
-已完成 30 期（1994 试刊 VOL.1-2 + 1994 第 01-05 期 + 1995 第 06-12/15-17 期 + 1996 第 18-29 期 + 1997 第 30 期）。详见 `STATE.md`。
+详见 `STATE.md`。
