@@ -13,7 +13,7 @@ status: done
 
 # SD高达G世纪ZERO
 
-{{< img  + r1 +  >}}
+【图】
 
 ～ + r1 + 期待玩友来稿～
 

@@ -8,7 +8,7 @@ games: ["最初映像"]
 status: done
 ---
 
-{{< img  + r1 +  >}}
+【图】
 
 # Primal Image 最初映像 vol.1
 
@@ -51,7 +51,7 @@ status: done
 | 年龄 | 20岁 |
 | 兴趣 | 收集古装、骑车 |
 
-{{< img  + r1 +  >}}
+【图】
 
 ## 来创造无双的偶像们吧！
 

@@ -7,7 +7,7 @@ mag_pages: 彩插16
 status: done
 ---
 
-{{< img  + r1 +  >}}
+【图】
 
 # 小林智美作品
 

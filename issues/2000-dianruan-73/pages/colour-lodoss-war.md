@@ -8,7 +8,7 @@ games: ["罗德岛战记·邪神降临"]
 status: done
 ---
 
-{{< img  + r1 +  >}}
+【图】
 
 # RECORD OF LODOSS WAR The Advent of Cardice
 
@@ -37,7 +37,7 @@ status: done
 
 ### 主人公
 
-{{< img  + r1 +  >}}
+【图】
 
 ## 组合古代文字来强化装备！
 
