@@ -22,9 +22,11 @@ mkdir -p issues/{slug}/{articles,pages,assets} /tmp/dianruan-{N}
 pdfseparate "源PDF路径" /tmp/dianruan-{N}/page-%d.pdf
 ```
 
-### 2. 结构扫描
+### 2. 结构扫描（主循环直接做，不派 agent）
 
-派 agent 读取所有 PDF 页面，识别每页内容（文章/广告/插页），编制 README.md 目录。
+直接读取封面 + 目录页（通常 PDF 1 和 PDF 11-12），从目录获取栏目和页码。
+结合历史规律推断结构（三段式彩插、对调页），只在边界不确定时额外读 2-3 页验证。
+手动编制 README.md 目录。**不要为此派独立 agent。**
 
 ### 3. WebP 生成
 
@@ -35,7 +37,16 @@ pdfseparate "源PDF路径" /tmp/dianruan-{N}/page-%d.pdf
 
 ### 4. OCR 转录
 
-派 agent 按 5-6 页一组读取 PDF，输出 Markdown 到 articles/ 和 pages/。
+派 **2 个** agent 并行读取 PDF，输出 Markdown 到 articles/ 和 pages/。
+
+**agent 提示词必须包含以下约束（节省 token）：**
+- ❌ 不要派出子 agent（subagent），自己完成所有文件
+- ❌ 不要运行 pytest 测试或 web.build 构建
+- ❌ 不要运行引号修复脚本（主循环统一修复）
+- ❌ 不要读取 CONVENTIONS.md（关键规则已内联在提示词中）
+- ✅ 直接用 Write 工具写文件，一次写完一个文件
+- ✅ 转录规则：全文逐字转录，中文全角引号 ""，frontmatter 字段顺序 issue→title→section→pdf_pages→mag_pages→author→games→status，每篇末尾 `## 编辑备注`
+- ✅ 图片位置用 `【图】` 描述，**禁止**使用 Hugo shortcode `{{< img >}}` 或任何模板语法
 
 ### 5. 提交前检查
 
@@ -59,15 +70,20 @@ git push
 ### 7. WebP 上传到 R2
 
 ```bash
-rclone sync issues/{slug}/assets/ r2:game-magazine/{slug}/ --include "*.webp"
+# ⚠️ 必须用 copy 不用 sync —— sync 会在本地文件被清理后把 R2 也清空！
+rclone copy issues/{slug}/assets/ r2:game-magazine/{slug}/ --include "*.webp"
+# 上传完成后验证（必须有 116 个文件）：
+rclone ls r2:game-magazine/{slug}/ | wc -l
 ```
 
 ### 8. 清理临时文件（每期必做！）
 
+**⚠️ 必须在第 7 步 R2 上传完成并验证后，才能清理本地 WebP！**
+
 ```bash
 rm -rf /tmp/dianruan-{N}/          # 拆页临时 PDF
 rm -rf /tmp/pytest-of-pi/          # pytest 构建缓存（每次约 3GB）
-rm -f /tmp/gen-webp-*.py /tmp/fix-quotes-*.py  # 临时脚本
+rm -f issues/{slug}/assets/*.webp  # 本地 WebP（已上传到 R2）
 # 每 2-3 期清理一次 agent 日志：
 # rm -rf ~/.claude/projects/.../subagents/ ~/.claude/projects/.../tool-results/
 ```
@@ -113,12 +129,21 @@ STATE.md                    # 项目进度跟踪（会话间接续用）
 - Action 在 push master 时自动构建部署（`.github/workflows/pages.yml`）
 - `--base` 从 `${{ github.event.repository.name }}` 自动推导
 
+## Token 预算注意事项
+
+- 每期 116 页用 2 个 agent 约消耗 **10-13 万 token**
+- 每次 cron 触发只做 **1 期**，不要连续追赶多期
+- 如果 session limit 快到了（agent 开始失败），立即停止，等下次 cron 触发继续
+- 周限额约 100 万 token，控制在每天不超过 1 期
+- 结构扫描自己做（读 2-3 页），不派 agent
+- OCR agent 不允许派子 agent、不允许跑测试/构建/引号修复
+
 ## Loop 配置
 
 定时自动执行 OCR 转录任务。Prompt 和 cron 表达式存于此处，作为唯一真实来源。
 
 ```
-cron: 3 0,18 * * *
+cron: 3 2 * * *
 prompt: 继续执行任务，如果上一个任务已完成，可以继续下一期内容的转录。如果不知道下一期是哪一期，可以自己从目录中寻找并推测。任务完成后，从 CLAUDE.md 的「Loop 配置」段读取 cron 和 prompt，先用 CronList 检查现有 job，如有则 CronDelete，再 CronCreate 新 job（重置 7 天过期）。注意：必须先 CronList 确认只删除本 loop 的 job，避免重复创建。
 ```
 
