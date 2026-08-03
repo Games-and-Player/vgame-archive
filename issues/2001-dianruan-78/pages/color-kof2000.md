@@ -17,13 +17,13 @@ status: done
 
 【图：整页彩色版面，展示《KOF 2000》角色原画。左侧为K'（K-Dash）的侧面肖像，右侧为Maxima的正面肖像，两人并排呈现，风格为浓郁的手绘油画质感。底部有英文标语】
 
-“”
+“”
 
-“” - MAXIMA
+“” - MAXIMA
 
-And thanks to new features like the “” and “”, last year's innovative Striker Match is all the more exciting.
-The new hero “” and the battle against the mysterious organization Nests gets takes a fast and furious new turn!
-“” is here with the long-awaited millennial showdown that'll singe you senseless!
+And thanks to new features like the “” and “”, last year's innovative Striker Match is all the more exciting.
+The new hero “” and the battle against the mysterious organization Nests gets takes a fast and furious new turn!
+“” is here with the long-awaited millennial showdown that'll singe you senseless!
 
 《电子游戏软件》2001年1月
 
@@ -37,4 +37,4 @@ The new hero “” and the battle against the mysterious organization Nests ge
 - 展示《格斗之王2000》（The King of Fighters 2000）角色原画
 - 插16为K'与Maxima的大幅肖像原画，画风精美
 - 英文标语介绍了Another Striker和Active Striker System新系统
-- 标注“”
+- 标注“”
