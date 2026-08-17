@@ -67,35 +67,27 @@ git commit -m "dianruan-{N}: 完结全文转录（...）"
 git push
 ```
 
-### 7. WebP 上传到 R2
-
-```bash
-# ⚠️ 必须用 copy 不用 sync —— sync 会在本地文件被清理后把 R2 也清空！
-rclone copy issues/{slug}/assets/ r2:game-magazine/{slug}/ --include "*.webp"
-# 上传完成后验证（必须有 116 个文件）：
-rclone ls r2:game-magazine/{slug}/ | wc -l
-```
-
-### 8. 清理临时文件（每期必做！）
-
-**⚠️ 必须在第 7 步 R2 上传完成并验证后，才能清理本地 WebP！**
+### 7. 清理临时文件（每期必做！）
 
 ```bash
 rm -rf /tmp/dianruan-{N}/          # 拆页临时 PDF
 rm -rf /tmp/pytest-of-pi/          # pytest 构建缓存（每次约 3GB）
-rm -f issues/{slug}/assets/*.webp  # 本地 WebP（已上传到 R2）
 # 每 2-3 期清理一次 agent 日志：
 # rm -rf ~/.claude/projects/.../subagents/ ~/.claude/projects/.../tool-results/
 ```
 
+**⚠️ 不要删除本地 WebP！** 图片由本地 Nginx 直接服务，删除会导致线上图片 404。
+
 ## 图片托管
 
-- **存储**：Cloudflare R2 桶 `game-magazine`
+- **存储**：本地 `issues/{slug}/assets/*.webp`，由 Nginx（端口 8787）直接服务
+- **反代**：Cloudflare Tunnel → `localhost:8787`
 - **域名**：`https://game-magazine.nerdliu.cyou/`
 - **URL 格式**：`https://game-magazine.nerdliu.cyou/{slug}/page-{NNN}.webp`
-- **同步工具**：`rclone sync ... r2:game-magazine/{slug}/`
-- **模板变量**：`assets_base`（在 `web/build.py` 中设置）
+- **模板变量**：`assets_base`（在 `web/build.py` 中设置，域名不变）
 - **Git 不追踪 WebP**：`.gitignore` 已排除 `issues/*/assets/`
+- **备份**：历史数据仍保留在 Cloudflare R2 桶 `game-magazine`（已停止同步）
+- **⚠️ 不要删除本地 WebP**——它们是线上图片的唯一来源
 
 ## 目录结构
 
