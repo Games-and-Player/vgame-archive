@@ -38,6 +38,7 @@ pdfseparate "源PDF路径" /tmp/dianruan-{N}/page-%d.pdf
 ### 4. OCR 转录
 
 派 **2 个** agent 并行读取 PDF，输出 Markdown 到 articles/ 和 pages/。
+**使用 `model: "sonnet"` 运行 OCR agent**——sonnet 的 OCR 能力足够，token 消耗更低，避免频繁触发 session limit。
 
 **agent 提示词必须包含以下约束（节省 token）：**
 - ❌ 不要派出子 agent（subagent），自己完成所有文件
@@ -69,11 +70,16 @@ git push
 
 ### 7. 清理临时文件（每期必做！）
 
+**⚠️ pytest 缓存每次构建约 5-10GB，必须每期清理，否则会撑满磁盘！**
+
 ```bash
 rm -rf /tmp/dianruan-{N}/          # 拆页临时 PDF
-rm -rf /tmp/pytest-of-pi/          # pytest 构建缓存（每次约 3GB）
-# 每 2-3 期清理一次 agent 日志：
-# rm -rf ~/.claude/projects/.../subagents/ ~/.claude/projects/.../tool-results/
+rm -rf /tmp/pytest-of-pi/          # pytest 构建缓存（必须每期清理！）
+```
+
+**每期都必须清理 subagent 日志**（每期约 300-400MB，累积很快）：
+```bash
+rm -rf ~/.claude/projects/-home-pi-exdisk-ocr-workspace/*/subagents/
 ```
 
 **⚠️ 不要删除本地 WebP！** 图片由本地 Nginx 直接服务，删除会导致线上图片 404。
@@ -125,10 +131,14 @@ STATE.md                    # 项目进度跟踪（会话间接续用）
 
 - 每期 116 页用 2 个 agent 约消耗 **10-13 万 token**
 - 每次 cron 触发只做 **1 期**，不要连续追赶多期
-- 如果 session limit 快到了（agent 开始失败），立即停止，等下次 cron 触发继续
-- 周限额约 100 万 token，控制在每天不超过 1 期
 - 结构扫描自己做（读 2-3 页），不派 agent
-- OCR agent 不允许派子 agent、不允许跑测试/构建/引号修复
+- OCR agent 使用 **sonnet 模型**（`model: "sonnet"`），不允许派子 agent、不允许跑测试/构建/引号修复
+
+**Rate limit 处理规则：**
+- 如果 agent 因 rate limit 失败，**不要当场重试**
+- 立即检查已完成的页面覆盖率，提交已有成果（commit message 标注 partial）
+- 重置 cron，等下次触发时再派补全 agent 处理缺失页面
+- 补全 agent 同样使用 sonnet 模型
 
 ## Loop 配置
 
