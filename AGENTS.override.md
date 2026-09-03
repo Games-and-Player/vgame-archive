@@ -20,11 +20,11 @@ mkdir -p issues/{slug}/{articles,pages,assets} /tmp/dianruan-{N}
 pdfseparate "源PDF路径" /tmp/dianruan-{N}/page-%d.pdf
 ```
 
-### 2. 结构扫描（主循环直接做，不派 agent）
+### 2. 结构扫描
 
 直接读取封面 + 目录页（通常 PDF 1 和 PDF 11-12），从目录获取栏目和页码。
 结合历史规律推断结构（三段式彩插、对调页），只在边界不确定时额外读 2-3 页验证。
-手动编制 README.md 目录。**不要为此派独立 agent。**
+手动编制 README.md 目录。
 
 ### 3. WebP 生成
 
@@ -33,16 +33,14 @@ pdfseparate "源PDF路径" /tmp/dianruan-{N}/page-%d.pdf
 # 生成到 issues/{slug}/assets/page-NNN.webp（本地保留，不提交到 git）
 ```
 
-### 4. OCR 转录
+### 4. OCR 转录（串行）
 
-派 **2 个** agent 并行读取 PDF，输出 Markdown 到 articles/ 和 pages/。
-**使用 `model: "sonnet"` 运行 OCR agent**——sonnet 的 OCR 能力足够，token 消耗更低，避免频繁触发 session limit。
+主 session 直接按顺序读取 PDF 页面，输出 Markdown 到 articles/ 和 pages/。
+不派子 agent，全部在当前 session 中串行完成。
 
-**agent 提示词必须包含以下约束（节省 token）：**
-- ❌ 不要派出子 agent（subagent），自己完成所有文件
-- ❌ 不要运行 pytest 测试或 web.build 构建
-- ❌ 不要运行引号修复脚本（主循环统一修复）
-- ❌ 不要读取 CONVENTIONS.md（关键规则已内联在提示词中）
+**转录约束：**
+- ❌ 不要运行 pytest 或 web.build（构建由 GitHub Actions 完成）
+- ❌ 不要运行引号修复脚本（完成后统一修复）
 - ✅ 直接用 Write 工具写文件，一次写完一个文件
 - ✅ 转录规则：全文逐字转录，中文全角引号 ""，frontmatter 字段顺序 issue→title→section→pdf_pages→mag_pages→author→games→status，每篇末尾 `## 编辑备注`
 - ✅ 图片位置用 `【图】` 描述，**禁止**使用 Hugo shortcode `{{< img >}}` 或任何模板语法
@@ -71,11 +69,6 @@ git push
 rm -rf /tmp/dianruan-{N}/          # 拆页临时 PDF
 ```
 
-**每期都必须清理 subagent 日志**（每期约 300-400MB，累积很快）：
-```bash
-rm -rf ~/.claude/projects/-home-pi-exdisk-ocr-workspace/*/subagents/
-```
-
 **⚠️ 不要删除本地 WebP！** 图片由本地 Nginx 直接服务，删除会导致线上图片 404。
 
 ## 图片托管
@@ -96,10 +89,10 @@ issues/{slug}/
   README.md                 # 本期目录索引 + 编辑团队 + 进度
   articles/*.md             # 长文章（全文 OCR）
   pages/*.md                # 短栏目页（封面、目录、封三、封底等）
-  assets/page-NNN.webp      # 整页扫描图（本地保留，上传到 R2，不进 git）
+  assets/page-NNN.webp      # 整页扫描图（本地保留，不进 git）
 web/                        # 静态站点构建器（Jinja2 + Markdown）
-  build.py                  # 构建入口，含 assets_base R2 域名配置
-  templates/                # Jinja2 模板（图片 src 指向 R2）
+  build.py                  # 构建入口，含 assets_base 域名配置
+  templates/                # Jinja2 模板（图片 src 指向域名）
 tests/                      # pytest 测试
 CONVENTIONS.md              # 转录规范
 STATE.md                    # 项目进度跟踪（会话间接续用）
@@ -123,32 +116,31 @@ STATE.md                    # 项目进度跟踪（会话间接续用）
 
 ## Token 预算注意事项
 
-- 每期 116 页用 2 个 agent 约消耗 **10-13 万 token**
-- 每次 cron 触发只做 **1 期**，不要连续追赶多期
-- 结构扫描自己做（读 2-3 页），不派 agent
-- OCR agent 使用 **sonnet 模型**（`model: "sonnet"`），不允许派子 agent、不允许跑测试/构建/引号修复
+- 每期 116 页串行约消耗 **8-12 万 token**
+- 每次定时触发只做 **1 期**，不要连续追赶多期
+- 结构扫描只读 2-3 页，不多读
 
 **Rate limit 处理规则：**
-- 如果 agent 因 rate limit 失败，**不要当场重试**
+- 如果因 rate limit 中断，**不要当场重试**
 - 立即检查已完成的页面覆盖率，提交已有成果（commit message 标注 partial）
-- 重置 cron，等下次触发时再派补全 agent 处理缺失页面
-- 补全 agent 同样使用 sonnet 模型
+- 等下次定时触发时继续处理缺失页面
 
-## Loop 配置
+## 定时配置（pi-schedule-prompt）
 
-定时自动执行 OCR 转录任务。Prompt 和 cron 表达式存于此处，作为唯一真实来源。
+定时自动执行 OCR 转录任务。使用 `schedule_prompt` 扩展管理定时任务。
+**注意：定时任务只在 pi session 保持打开时才会触发。**
 
 ```
-cron: 3 2 * * *
-prompt: 继续执行任务，如果上一个任务已完成，可以继续下一期内容的转录。如果不知道下一期是哪一期，可以自己从目录中寻找并推测。任务完成后，从 CLAUDE.md 的「Loop 配置」段读取 cron 和 prompt，先用 CronList 检查现有 job，如有则 CronDelete，再 CronCreate 新 job（重置 7 天过期）。注意：必须先 CronList 确认只删除本 loop 的 job，避免重复创建。
+schedule: 0 3 2 * * *
+name: ocr-daily
+prompt: 继续执行任务，如果上一个任务已完成，可以继续下一期内容的转录。如果不知道下一期是哪一期，可以自己从目录中寻找并推测。
 ```
 
-**执行规则：**
-1. Cron 触发 → 执行 prompt 中的转录任务
-2. 完成后（commit + push + R2 + cleanup）→ 读取本段配置
-3. `CronList` → 找到现有 job → `CronDelete` 该 job
-4. `CronCreate` 用上面的 cron 和 prompt → 重置 7 天计时器
-5. 如果 `CronList` 为空（已过期），跳过删除直接创建
+Job 创建一次即可持久运行，无需每次删除重建。
+首次设置：`schedule_prompt(action="add", name="ocr-daily", schedule="0 3 2 * * *", type="cron", prompt="...")`
+查看状态：`schedule_prompt(action="list")`
+
+**cron 格式说明：** pi-schedule-prompt 使用 6 字段格式（秒 分 时 日 月 周），`0 3 2 * * *` = 每天 02:03:00。
 
 ## 当前状态
 
