@@ -15,8 +15,18 @@ wheels/
 # Build output
 dist/
 
-# WebP scan images (hosted on Cloudflare R2)
+# WebP scan images (本地 Nginx 服务，不进 git)
 issues/*/assets/
 
 # Docs (brainstorm sessions)
 docs/
+
+# Agent 工作目录 & 缓存
+pytest-of-pi/
+.pi/
+.claude/
+.playwright/
+.playwright-cli/
+
+# Local helper scripts
+pull_script.sh

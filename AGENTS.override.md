@@ -93,7 +93,6 @@ issues/{slug}/
 web/                        # 静态站点构建器（Jinja2 + Markdown）
   build.py                  # 构建入口，含 assets_base 域名配置
   templates/                # Jinja2 模板（图片 src 指向域名）
-tests/                      # pytest 测试
 CONVENTIONS.md              # 转录规范
 STATE.md                    # 项目进度跟踪（会话间接续用）
 ```
