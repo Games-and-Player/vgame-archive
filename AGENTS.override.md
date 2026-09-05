@@ -38,9 +38,14 @@ pdfseparate "源PDF路径" /tmp/dianruan-{N}/page-%d.pdf
 主 session 直接按顺序读取 PDF 页面，输出 Markdown 到 articles/ 和 pages/。
 不派子 agent，全部在当前 session 中串行完成。
 
+**⚠️ 必须用视觉逐页阅读扫描图/PDF 转录。严禁使用任何 OCR 工具**——不得安装、解包或调用 tesseract、pdftotext、paddleocr、easyocr 等，也不得用它们生成“底稿”再校订。OCR 底稿会产生整行拉丁乱码、同名异写、汉字间插空格等错误，且无法描述图片，质量不可接受。
+
 **转录约束：**
+- ❌ 严禁 OCR 工具（见上）——只能视觉阅读
+- ❌ 不要自创 `## PDF 第 N 页（刊页 M）` 之类的分页标题，按文章自然结构分节
 - ❌ 不要运行 pytest 或 web.build（构建由 GitHub Actions 完成）
 - ❌ 不要运行引号修复脚本（完成后统一修复）
+- ✅ 某页确实看不清时，标 `[?]` 或在编辑备注中说明，**不要猜**
 - ✅ 直接用 Write 工具写文件，一次写完一个文件
 - ✅ 转录规则：全文逐字转录，中文全角引号 ""，frontmatter 字段顺序 issue→title→section→pdf_pages→mag_pages→author→games→status，每篇末尾 `## 编辑备注`
 - ✅ 图片位置用 `【图】` 描述，**禁止**使用 Hugo shortcode `{{< img >}}` 或任何模板语法

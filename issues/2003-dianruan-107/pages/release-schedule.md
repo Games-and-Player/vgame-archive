@@ -1,138 +1,82 @@
 ---
 issue: 2003-dianruan-107
 title: 全硬件新作游戏发售表
-section: 发售表
+section: 新作发售情况表
 pdf_pages: [126]
 mag_pages: [122]
-author: null
+author: 天语
 games: []
 status: done
 ---
 # 全硬件新作游戏发售表
 
-## PDF 第 126 页（刊页 122）
+**ALL GAME SOFTWARE SCHEDULE**
 
-未定
-足球世界战记 2003
+天语：VFEVO必玩，武装雄狮却不知死活。给电脑加了一条内存，并安装Windows XP Professional，虽无死机蓝屏之烦恼，但对互联网已深感无味。只好看电影，十三年后重温“幼儿园特警”，感觉不错。
 
-This Is Football + » #—-th5Rdk1e 2003
+【图】栏目图例：Dreamcast／Playstation／Playstation2／NINTENDO GAMECUBE／GAMEBOY GAME／BOY ADVANCE／Wonderswan 各平台色块标识
 
-炸阐人卡丁 〈 哈德森最佳 )
+## PLAYSTATION 2
 
-RoR SI PRY Se Se
+| 发售日 | 中文名称 | 日文原名 | 类型 | 厂商 |
+|---|---|---|---|---|
+| 3月6日 | 怪盗库帕 | 怪盗スライ・クーパー | ACT | SCEJ |
+| 3月6日 | 浑沌军势 | カオスレギオン | ACT | CAPCOM |
+| 3月6日 | 未定 | サベージスカイ | ACT | SUCCESS |
+| 3月6日 | 足球世界战记2003 | This Is Football サッカー世界战记2003 | SPG | SCEJ |
+| 3月6日 | 炸弹人卡丁（哈德森最佳） | ボンバーマンカート ハドソン・ザ・ベスト | RAC | HUDSON |
+| 3月13日 | 永世名人7 通信将棋俱乐部 | 永世名人7 通信将棋俱乐部 | TAB | KONAMI |
+| 3月13日 | 天使演唱会 | エンジェリック・コンサト | AVG | SUCCESS |
+| 3月13日 | 天使演唱会・特别版 | エンジェリック・コンサトスペシャルBOX | AVG | SUCCESS |
+| 3月13日 | 汤姆・克兰西系列～幽灵行动 | トム・クランシーシリーズ ゴーストリコン | ACT | UBI |
+| 3月13日 | **VF4进化版** | バーチャファイター4エボリューション | FTG | SEGA |
+| 3月13日 | **最终幻想X2** | ファイナルファンタジーX2 | RPG | SQUARE |
+| 3月13日 | 最终幻想X2 托架 | ファイナルファンタジーX2スタンド | 周边 | HORI |
+| 3月13日 | 最终幻想X2 拜因记忆卡 | ファイナルファンタジーX2メモリーカード8MBパイン | 周边 | HORI |
+| 3月13日 | 最终幻想X2 尤娜记忆卡 | ファイナルファンタジーX2メモリーカード8MBユウナ | 周边 | HORI |
+| 3月13日 | 迷你飞行大作战 | プチコプター | SLG | AQUA |
+| 3月13日 | 迷你飞行大作战 机甲型控制器 | プチコプターラジコンブロボ型コントローラセット | SLG | AQUA |
+| 3月19日 | 飞跃时空彩虹 | OVER THE MONOCHROME RAINBOW featuring SHOGO HAMADA | AVG | SMJ |
 
-永世名人 7 通信将棋俱乐部
+## PLAYSTATION
 
-永世名人 7 通信将棋俱乐部
+| 发售日 | 中文名称 | 日文原名 | 类型 | 厂商 |
+|---|---|---|---|---|
+| 3月6日 | X-MEN合集2 | X-MEN MUTANT ACADEMY2 | FTG | SUCCESS |
+| 3月6日 | 妹妹公主2 | シスター・プリンセス2 | AVG | MediaWorks |
+| 3月13日 | 疯狂柏青嫂9 | スロッターマニア9极热30！ハイビ＆スプラッシュセビン | AVG | MediaWorks |
 
-天使演唱会
+## NINTENDO GAMECUBE
 
-天使演唱会 .特别版
+| 发售日 | 中文名称 | 日文原名 | 类型 | 厂商 |
+|---|---|---|---|---|
+| 3月6日 | 洛克人EXE传送篇 | ロックマン エグゼ トランスミッション | ACT | CAPCOM |
+| 3月20日 | 棒球2003 | THE BASEBALL 2003 バトルボールパーク宣言 パーフェクトプレープロ野球 | SPG | KONAM |
+| 3月20日 | 星球大战・克隆人的战争 | スター・ウォーズ クローン战争 | ACT | EA |
 
-汤姆克兰西系列一幽灵行动
-VF4 进化版
+## XBOX
 
-最终幻想 X 2
+| 发售日 | 中文名称 | 日文原名 | 类型 | 厂商 |
+|---|---|---|---|---|
+| 3月20日 | 千岛 | 1000 Thousand Land | SRPG | FROM |
+| 3月20日 | 蝙蝠侠：黑暗明天 | BATMAN：Dark Tomorrow | ACT | KEMCO |
+| 3月27日 | 灵魂能力2 | Soul Calibur II | FTG | NAMCO |
 
-Boy ey 7 Se
-_ayybprzry x BOX
-ee SN da ho a A) Ne mes a5)
-R-PFRITAPALEY tay aS
-TIA FMI FRI Xe
+## GAMEBOY ADVANCE
 
-nyystyyy
-
-最终幻想 X 2 托架
-
-TTAFPNMIT SSS KAAS SF
-
-最终幻想 X 2 拜因记忆卡
-
-FIAFNIT YR F—X2A SY —-P-—FEMBYS4
-
-最终幻想 X 2 尤娜记忆卡
-
-| 绷 18 目 “| 迷你飞行大作战
-
-| 绷 18 目”| 迷你飞行大作战机甲型控制器
-
-| sR198 | 飞哮时空彩虹
-Papee | x-wengme
-
-3 月 6 日 ABA?
-
-DIA FMIT SRI K AZ 2Y —F—-F SMB 2A
-
-人
-
-OVER THE MONOCHROME RAINBOW featuring SHOGO HAMADA 下
-
-PLAYSTATION 一一
-
-X-MEN MUTANT ACADEMY2 | FTe | success |
-ae cova ave )iMeclaionks
-
-3 月 13 日疯狂柏青媳 9
-3 月 6 日
-
-3 月 20 日
-3 月 20
-
-洛克人 EXE 传送篇
-棒球 2003
-星球大战，克隆人的战争
-
-FS
-蝙蝠侠 : 黑暗明天
-
-Away F-T=T IMAI! 信人了 ERAT FIV VY s2eEY | ave | MediaWorks |
-NINTENDO GAMECUBE
-Pyles Le hI tA oS aS
-THE BASEBALL 2003 »S} V#K-VA-7 BS
-SoA 7 tai
-Ske) = eae
-
-N-JLYbAFL-F 3 野球
-
-1000 Thousend Land
-BATMAN:Dark Tomorrow
-
-灵魂能力 2
-
-Soul Calibur II
-
-世界传说
-
-塞尔达传说 : 众神三力四创
-未定
-
-Get Backers 夺还
-妹妹公 3
-
-屋
-
-TAMA 动引人
-EMS ORR HX Ob FAT + A&I OF)
-
-bX FAD YX YT YYV-KOPWARIF Y ~AFREBRESW~
-Get Backers 夺还屋 +h uk) aAGUMER!
-
-VAP:
-
-Marvellous
-
-FY vx -A~Re Pure~
-
-主一再纯一
-SIMPLE2960 系列 . 桌面游戏合集
-
-SIMPLE2960¢ 84 62 Y—ZX vol.2theF7-FaF¥-havyvay
-
-Marvellous
-
-【图】表格按PS2、NGC、Xbox和GBA列出新作发售日期。
+| 发售日 | 中文名称 | 日文原名 | 类型 | 厂商 |
+|---|---|---|---|---|
+| 3月7日 | 世界传说 | テイルズ オブ ザ ワールド～サモナーズ リネージ～ | RPG | NAMCO |
+| 3月14日 | 塞尔达传说：众神三力四剑 | ゼルダの伝説 神々のトライフォス＆4つの剣 | RPG | NINTENDO |
+| 3月14日 | 未定 | トキドキクッキングシリーズ②グルメキッチン ～ステキなお便当～ | SLG | MTO |
+| 3月20日 | Get Backers夺还屋 | Get Backers夺还屋 メトロポリス夺还作战！ | RPG | KONAMI |
+| 3月20日 | 妹妹公主～再纯～ | シスター・プリンセス～Re Pure～ | AVG | Marvellous |
+| 3月20日 | SIMPLE2960系列・桌面游戏合集 | SIMPLE2960ともだちシリーズ vol.2Theテーブルゲームコレクション | AVG | Marvellous |
 
 ## 编辑备注
 
-- 本篇对应 PDF 126。刊页 122。
-- 原刊中的日文、英文、截图小字及密集表格按扫描件可辨内容保留；版面阅读顺序已整理为连续文本。
+- 本页为 PDF 126，印刷刊页 122。
+- 左侧竖排栏目名为「BI-WEEKLY DATA STATION」。
+- “浑沌军势”本期攻略页作“混沌军势”，原刊两种写法并存。
+- GAMECUBE 栏《棒球2003》厂商栏印作 KONAM，应为 KONAMI 之漏字，照录。
+- 日文原名按扫描件保留，其中简繁及日文汉字混排处依原样转录。
